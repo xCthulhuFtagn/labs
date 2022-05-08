@@ -1,0 +1,233 @@
+    Student GPSS/H Release 3.70 (CT256)     18 Apr 2022   15:11:05     File: D:\GPSSH2016\labs\Andrey_laba2.gps
+
+    Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
+ 
+        1     1                       SIMULATE
+        2     2              1        GENERATE 5
+        3     3              2        QUEUE JJO1
+        4     4              3        SEIZE JDO1
+        5     5              4        DEPART JJO1
+        6     6              5        ADVANCE 10
+        7     7              6        RELEASE JDO1
+        8     8              7        TRANSFER .8,LAB4,LAB6
+        9     9                   
+       10    10              8        GENERATE 20
+       11    11              9        QUEUE JJO2
+       12    12             10        SEIZE JDO2
+       13    13             11        DEPART JJO2
+       14    14             12        ADVANCE 10
+       15    15             13        RELEASE JDO2
+       16    16             14        TRANSFER .7,LAB4,LAB5
+       17    17                  
+       18    18             15        GENERATE 10
+       19    19             16        QUEUE JJO3
+       20    20             17        SEIZE JDO3
+       21    21             18        DEPART JJO3
+       22    22             19        ADVANCE 10    
+       23    23             20        RELEASE JDO3
+       24    24             21        TRANSFER .4,LAB5,LAB8
+       25    25                  
+       26    26             22  LAB4  QUEUE JJO4
+       27    27             23        SEIZE JDO4
+       28    28             24        DEPART JJO4
+       29    29             25        ADVANCE 10
+       30    30             26        RELEASE JDO4
+       31    31             27        TRANSFER .5,LAB6,LAB7
+       32    32                  
+       33    33             28  LAB5  QUEUE JJO5
+       34    34             29        SEIZE JDO5
+       35    35             30        DEPART JJO5
+       36    36             31        ADVANCE 10
+       37    37             32        RELEASE JDO5
+       38    38             33        TRANSFER .1,LAB7,LAB8
+       39    39                  
+       40    40             34  LAB6  QUEUE JJO6
+       41    41             35        SEIZE JDO6
+       42    42             36        DEPART JJO6
+       43    43             37        ADVANCE 10
+       44    44             38        RELEASE JDO6
+       45    45             39        TRANSFER .4,LAB7,LAB9
+       46    46                  
+       47    47             40  LAB7  QUEUE JJO7
+       48    48             41        SEIZE JDO7
+       49    49             42        DEPART JJO7
+       50    50             43        ADVANCE 10
+       51    51             44        RELEASE JDO7
+       52    52             45        TRANSFER ,LAB9
+       53    53                  
+       54    54             46  LAB8  QUEUE JJO8
+       55    55             47        SEIZE JDO8
+       56    56             48        DEPART JJO8
+
+    Student GPSS/H Release 3.70 (CT256)     18 Apr 2022   15:11:05     File: D:\GPSSH2016\labs\Andrey_laba2.gps
+
+    Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
+ 
+       57    57             49        ADVANCE 10
+       58    58             50        RELEASE JDO8
+       59    59             51        TRANSFER .3,LAB7,LAB9
+       60    60                  
+       61    61             52  LAB9  QUEUE JJO9
+       62    62             53        SEIZE JDO9
+       63    63             54        DEPART JJO9
+       64    64             55        ADVANCE 10
+       65    65             56        RELEASE JDO9
+       66    66             57        TERMINATE
+       67    67                  
+       68    68             58        GENERATE 100
+       69    69             59        TERMINATE 1
+       70    70                       START 1
+       71    71                       END 
+
+Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
+
+       Facilities: 1=JDO1          2=JDO2          3=JDO3          4=JDO4          5=JDO5          6=JDO6          
+                   7=JDO7          8=JDO8          9=JDO9
+
+           Queues: 1=JJO1          2=JJO2          3=JJO3          4=JJO4          5=JJO5          6=JJO6          
+                   7=JJO7          8=JJO8          9=JJO9
+
+Symbol   Value   EQU Defns  Context      References by Statement Number
+ 
+LAB4        22          26  Block            8    16
+LAB5        28          33  Block           16    24
+LAB6        34          40  Block            8    31
+LAB7        40          47  Block           31    38    45    59
+LAB8        46          54  Block           24    38
+LAB9        52          61  Block           45    52    59
+ 
+JDO1         1              Facility         4     7
+JDO2         2              Facility        12    15
+JDO3         3              Facility        20    23
+JDO4         4              Facility        27    30
+JDO5         5              Facility        34    37
+JDO6         6              Facility        41    44
+JDO7         7              Facility        48    51
+JDO8         8              Facility        55    58
+JDO9         9              Facility        62    65
+ 
+JJO1         1              Queue            3     5
+JJO2         2              Queue           11    13
+JJO3         3              Queue           19    21
+JJO4         4              Queue           26    28
+JJO5         5              Queue           33    35
+JJO6         6              Queue           40    42
+JJO7         7              Queue           47    49
+JJO8         8              Queue           54    56
+JJO9         9              Queue           61    63
+
+
+
+Storage Requirements (Bytes)
+
+Compiled Code:     1222
+Compiled Data:      160
+Miscellaneous:        0
+Entities:          1136
+Common:           10000
+-----------------------
+Total:            12518
+
+
+
+GPSS/H Model Size:
+
+Control Statements      3
+Blocks                 59
+
+
+
+Simulation begins.
+
+Relative Clock: 100.0000   Absolute Clock: 100.0000
+
+
+
+Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total
+1                    19  11                    4  21                    8  31          1         8  41                    8 
+2           9        19  12                    4  LAB4                  2  32                    7  42                    8 
+3                    10  13                    4  23                    2  33                    7  43          1         8 
+4                    10  14                    4  24                    2  LAB6        1        10  44                    7 
+5           1        10  15                    9  25          1         2  35                    9  45                    7 
+6                     9  16                    9  26                    1  36                    9  LAB8                  3 
+7                     9  17                    9  27                    1  37          1         9  47                    3 
+8                     4  18                    9  LAB5                  8  38                    8  48                    3 
+9                     4  19          1         9  29                    8  39                    8  49          1         3 
+10                    4  20                    8  30                    8  LAB7        6        14  50                    2 
+
+
+
+Block Current     Total  
+51                    2 
+LAB9        2         9 
+53                    7 
+54                    7 
+55          1         7 
+56                    6 
+57                    6 
+58                    1 
+59                    1 
+
+
+
+          --Avg-Util-During--                                                               
+Facility  Total  Avail  Unavl     Entries    Average   Current  Percent  Seizing  Preempting
+           Time   Time   Time               Time/Xact   Status   Avail     Xact      Xact   
+    JDO1  0.950                        10       9.500    AVAIL               19 
+    JDO2  0.400                         4      10.000    AVAIL                  
+    JDO3  0.900                         9      10.000    AVAIL               31 
+    JDO4  0.200                         2      10.000    AVAIL               23 
+    JDO5  0.800                         8      10.000    AVAIL               24 
+    JDO6  0.850                         9       9.444    AVAIL               15 
+    JDO7  0.750                         8       9.375    AVAIL               13 
+    JDO8  0.300                         3      10.000    AVAIL               27 
+    JDO9  0.650                         7       9.286    AVAIL                6 
+
+
+
+   Queue     Maximum      Average       Total        Zero     Percent      Average      $Average     Qtable     Current
+            Contents     Contents      Entries     Entries     Zeros      Time/Unit    Time/Unit     Number    Contents
+    JJO1           9        4.500          19           1        5.3        23.684        25.000                      9
+    JJO2           1        0.000           4           4      100.0         0.000         0.000                      0
+    JJO3           1        0.000           9           9      100.0         0.000         0.000                      0
+    JJO4           1        0.000           2           2      100.0         0.000         0.000                      0
+    JJO5           1        0.300           8           5       62.5         3.750        10.000                      0
+    JJO6           1        0.400          10           5       50.0         4.000         8.000                      1
+    JJO7           6        2.200          14           1        7.1        15.714        16.923                      6
+    JJO8           1        0.100           3           2       66.7         3.333        10.000                      0
+    JJO9           2        0.900           9           2       22.2        10.000        12.857                      2
+
+  Random    Antithetic     Initial     Current      Sample   Chi-Square
+  Stream      Variates    Position    Position       Count   Uniformity
+       1           OFF      100000      100039          39       N/A
+
+
+
+Status of Common Storage
+
+    6136 bytes available
+    3864 in use
+    3976 used (max)
+
+Simulation complete.  Absolute Clock: 100.0000
+
+
+
+Total Block Executions: 396
+
+Blocks / second:        5649067
+
+Microseconds / Block:   0.18
+
+
+
+Elapsed Time Used (Sec)
+ 
+Pass1:           0.00
+Sym/Xref         0.00
+Pass2:           0.00
+Load/Ctrl:       0.00
+Execution:       0.00
+Output:          0.00
+---------------------
+Total:           0.01

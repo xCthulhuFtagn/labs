@@ -1,0 +1,230 @@
+    Student GPSS/H Release 3.70 (CT256)     22 Apr 2022   12:04:44     File: D:\GPSSH2016\labs\2.gps
+
+    Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
+ 
+        1     1                         SIMULATE
+        2     2                  
+        3     3              1          GENERATE 20,,,20        
+        4     4              2          QUEUE QD1
+        5     5              3          SEIZE DD1
+        6     6              4          DEPART QD1
+        7     7              5          ADVANCE 1      
+        8     8              6          RELEASE DD1    
+        9     9              7          TRANSFER .5,LAB7,LAB6
+       10    10                  
+       11    11              8          GENERATE 20,,,20
+       12    12              9          QUEUE QD2
+       13    13             10          SEIZE DD2
+       14    14             11          DEPART QD2
+       15    15             12          ADVANCE 2
+       16    16             13          RELEASE DD2
+       17    17             14          TRANSFER .5,LAB4,LAB5
+       18    18                  
+       19    19             15          GENERATE 20,,,20
+       20    20             16          QUEUE QD3
+       21    21             17          SEIZE DD3
+       22    22             18          DEPART QD3
+       23    23             19          ADVANCE 3
+       24    24             20          RELEASE DD3
+       25    25             21          TRANSFER .8,LAB5,LAB6
+       26    26                  
+       27    27             22  LAB4    QUEUE QD4
+       28    28             23          SEIZE DD4
+       29    29             24          DEPART QD4
+       30    30             25          ADVANCE 12
+       31    31             26          RELEASE DD4
+       32    32             27          TRANSFER .6,LAB7,LAB8
+       33    33                  
+       34    34             28  LAB5    QUEUE QD5
+       35    35             29          SEIZE DD5
+       36    36             30          DEPART QD5
+       37    37             31          ADVANCE 8
+       38    38             32          RELEASE DD5
+       39    39             33          TRANSFER .3,LAB9,LAB8
+       40    40                  
+       41    41             34  LAB6    QUEUE QD6
+       42    42             35          SEIZE DD6
+       43    43             36          DEPART QD6
+       44    44             37          ADVANCE 18
+       45    45             38          RELEASE DD6
+       46    46             39          TRANSFER .6,LAB7,LAB8
+       47    47                  
+       48    48             40  LAB7    QUEUE QD7
+       49    49             41          SEIZE DD7
+       50    50             42          DEPART QD7
+       51    51             43          ADVANCE 2
+       52    52             44          RELEASE DD7
+       53    53             45          TRANSFER .6,LAB9,LAB8
+       54    54                  
+       55    55             46  LAB8    QUEUE QD8
+       56    56             47          SEIZE DD8
+
+    Student GPSS/H Release 3.70 (CT256)     22 Apr 2022   12:04:44     File: D:\GPSSH2016\labs\2.gps
+
+    Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
+ 
+       57    57             48          DEPART QD8
+       58    58             49          ADVANCE 10
+       59    59             50          RELEASE DD8
+       60    60             51          TRANSFER ,LAB9
+       61    61                  
+       62    62             52  LAB9    QUEUE QD9
+       63    63             53          SEIZE DD9
+       64    64             54          DEPART QD9
+       65    65             55          ADVANCE 5
+       66    66             56          RELEASE DD9
+       67    67             57          TERMINATE 1
+       68    68                  
+       69    69                         START 60  
+       70    70                         END
+
+Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
+
+       Facilities: 1=DD1           2=DD2           3=DD3           4=DD4           5=DD5           6=DD6           
+                   7=DD7           8=DD8           9=DD9
+
+           Queues: 1=QD1           2=QD2           3=QD3           4=QD4           5=QD5           6=QD6           
+                   7=QD7           8=QD8           9=QD9
+
+Symbol   Value   EQU Defns  Context      References by Statement Number
+ 
+LAB4        22          27  Block           17
+LAB5        28          34  Block           17    25
+LAB6        34          41  Block            9    25
+LAB7        40          48  Block            9    32    46
+LAB8        46          55  Block           32    39    46    53
+LAB9        52          62  Block           39    53    60
+ 
+DD1          1              Facility         5     8
+DD2          2              Facility        13    16
+DD3          3              Facility        21    24
+DD4          4              Facility        28    31
+DD5          5              Facility        35    38
+DD6          6              Facility        42    45
+DD7          7              Facility        49    52
+DD8          8              Facility        56    59
+DD9          9              Facility        63    66
+ 
+QD1          1              Queue            4     6
+QD2          2              Queue           12    14
+QD3          3              Queue           20    22
+QD4          4              Queue           27    29
+QD5          5              Queue           34    36
+QD6          6              Queue           41    43
+QD7          7              Queue           48    50
+QD8          8              Queue           55    57
+QD9          9              Queue           62    64
+
+
+
+Storage Requirements (Bytes)
+
+Compiled Code:     1186
+Compiled Data:      120
+Miscellaneous:        0
+Entities:          1136
+Common:           10000
+-----------------------
+Total:            12442
+
+
+
+GPSS/H Model Size:
+
+Control Statements      3
+Blocks                 57
+
+
+
+Simulation begins.
+
+Relative Clock: 484.0000   Absolute Clock: 484.0000
+
+
+
+Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total
+1                    20  11                   20  21                   20  31                   17  41                   28 
+2                    20  12                   20  LAB4                  7  32                   17  42                   28 
+3                    20  13                   20  23                    7  33                   17  43                   28 
+4                    20  14                   20  24                    7  LAB6                 24  44                   28 
+5                    20  15                   20  25                    7  35                   24  45                   28 
+6                    20  16                   20  26                    7  36                   24  LAB8                 35 
+7                    20  17                   20  27                    7  37                   24  47                   35 
+8                    20  18                   20  LAB5                 17  38                   24  48                   35 
+9                    20  19                   20  29                   17  39                   24  49                   35 
+10                   20  20                   20  30                   17  LAB7                 28  50                   35 
+
+
+
+Block Current     Total  
+51                   35 
+LAB9                 60 
+53                   60 
+54                   60 
+55                   60 
+56                   60 
+57                   60 
+
+
+
+          --Avg-Util-During--                                                               
+Facility  Total  Avail  Unavl     Entries    Average   Current  Percent  Seizing  Preempting
+           Time   Time   Time               Time/Xact   Status   Avail     Xact      Xact   
+     DD1  0.041                        20       1.000    AVAIL                  
+     DD2  0.083                        20       2.000    AVAIL                  
+     DD3  0.124                        20       3.000    AVAIL                  
+     DD4  0.174                         7      12.000    AVAIL                  
+     DD5  0.281                        17       8.000    AVAIL                  
+     DD6  0.893                        24      18.000    AVAIL                  
+     DD7  0.116                        28       2.000    AVAIL                  
+     DD8  0.723                        35      10.000    AVAIL                  
+     DD9  0.620                        60       5.000    AVAIL                  
+
+
+
+   Queue     Maximum      Average       Total        Zero     Percent      Average      $Average     Qtable     Current
+            Contents     Contents      Entries     Entries     Zeros      Time/Unit    Time/Unit     Number    Contents
+     QD1           1        0.000          20          20      100.0         0.000         0.000                      0
+     QD2           1        0.000          20          20      100.0         0.000         0.000                      0
+     QD3           1        0.000          20          20      100.0         0.000         0.000                      0
+     QD4           1        0.000           7           7      100.0         0.000         0.000                      0
+     QD5           1        0.043          17          14       82.4         1.235         7.000                      0
+     QD6           5        1.413          24           4       16.7        28.500        34.200                      0
+     QD7           1        0.004          28          27       96.4         0.071         2.000                      0
+     QD8           2        0.302          35          13       37.1         4.171         6.636                      0
+     QD9           2        0.196          60          34       56.7         1.583         3.654                      0
+
+  Random    Antithetic     Initial     Current      Sample   Chi-Square
+  Stream      Variates    Position    Position       Count   Uniformity
+       1           OFF      100000      100136         136      0.32
+
+
+
+Status of Common Storage
+
+    9784 bytes available
+     216 in use
+    1752 used (max)
+
+Simulation complete.  Absolute Clock: 484.0000
+
+
+
+Total Block Executions: 1446
+
+Blocks / second:        11842752
+
+Microseconds / Block:   0.08
+
+
+
+Elapsed Time Used (Sec)
+ 
+Pass1:           0.00
+Sym/Xref         0.00
+Pass2:           0.00
+Load/Ctrl:       0.00
+Execution:       0.00
+Output:          0.01
+---------------------
+Total:           0.02

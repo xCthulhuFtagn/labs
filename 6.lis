@@ -1,0 +1,230 @@
+    Student GPSS/H Release 3.70 (CT256)      7 May 2022   23:16:27     File: D:\GPSSH2016\labs\6.gps
+
+    Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
+ 
+        1     1                 	SIMULATE
+        2     2                   	REALLOСATE COM,32720
+        3     3                  
+        4     4                  
+        5     5                 1 FUNCTION RN1,D2
+        6     6                 .5,1/1,1
+        7     7                  
+        8     8                 2 FUNCTION RN1,D3
+        9     9                 .1,3/.3,4/1,2
+       10    10                  
+       11    11                 4 FUNCTION RN1,D3
+       12    12                 .2,2/.5,6/1,4
+       13    13                  
+       14    14              1            GENERATE 1
+       15    15              2          ASSIGN 1,1      *CPU NUMBER
+       16    16              3          PRIORITY 127
+       17    17              4  CPU1    QUEUE QCPU1
+       18    18              5            SEIZE DCPU1
+       19    19              6            DEPART QCPU1
+       20    20              7            ADVANCE 5
+       21    21              8            RELEASE DCPU1
+       22    22              9            TRANSFER ,CCPU
+       23    23                  
+       24    24             10            GENERATE 1
+       25    25             11          ASSIGN 1,2      *CPU NUMBER
+       26    26             12  CPU2    QUEUE QCPU2
+       27    27             13            SEIZE DCPU2
+       28    28             14            DEPART QCPU2
+       29    29             15            ADVANCE 5
+       30    30             16            RELEASE DCPU2
+       31    31             17            TRANSFER ,CCPU
+       32    32                  
+       33    33             18            GENERATE 1
+       34    34             19          ASSIGN 1,3      *CPU NUMBER
+       35    35             20  CPU3    QUEUE QCPU3
+       36    36             21            SEIZE DCPU3
+       37    37             22            DEPART QCPU3
+       38    38             23            ADVANCE 4
+       39    39             24            RELEASE DCPU3
+       40    40             25            TRANSFER ,CCPU
+       41    41                  
+       42    42             26            GENERATE 1
+       43    43             27          ASSIGN 1,4      *CPU NUMBER
+       44    44             28  CPU4    QUEUE QCPU4
+       45    45             29            SEIZE DCPU4
+       46    46             30            DEPART QCPU4
+       47    47             31            ADVANCE 6
+       48    48             32            RELEASE DCPU4
+       49    49             33            TRANSFER ,CCPU
+       50    50                  
+       51    51             34  CCPU    QUEUE QCVM
+       52    52             35          PREEPT CVM,PR,MEH1,,RE
+       53    53             36          DEPART QCVM
+       54    54             37          TEST E P1,1,MET2
+       55    55             38          ADVANCE FN1
+       56    56             39  	RETURN CVM
+
+    Student GPSS/H Release 3.70 (CT256)      7 May 2022   23:16:27     File: D:\GPSSH2016\labs\6.gps
+
+    Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
+ 
+       57    57             40          TRANSFER ,CPU1
+       58    58             41  MET2     TEST E P1,2,MET3
+       59    59             42          ADVANCE FN2
+       60    60             43  	RETURN CVM
+       61    61             44          TRANSFER ,CPU2
+       62    62             45  MET3     TEST E P1,3,MET4
+       63    63             46          ADVANCE 5
+       64    64             47  	RETURN CVM
+       65    65             48          TRANSFER ,CPU3
+       66    66             49  MET4    ADVANCE FN4
+       67    67             50  	RETURN CVM
+       68    68             51          TRANSFER ,CPU4
+       69    69                  
+       70    70             52  MEH1    TERMINATE 1
+       71    71                  
+       72    72                  
+       73    73             53          GENERATE 350
+       74    74             54          TERMINATE 1
+       75    75                         START 1
+       76    76                         END
+
+Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
+
+       Facilities: 1=DCPU1         2=DCPU2         3=DCPU3         4=DCPU4         5=CVM
+
+           Queues: 1=QCPU1         2=QCPU2         3=QCPU3         4=QCPU4         5=QCVM
+
+        Functions: 1               2               4
+
+       Parameters: 1
+
+   Random Numbers: 1
+
+Symbol   Value   EQU Defns  Context      References by Statement Number
+ 
+CCPU        34          51  Block           22    31    40    49
+CPU1         4          17  Block           57
+CPU2        12          26  Block           61
+CPU3        20          35  Block           65
+CPU4        28          44  Block           68
+MEH1        52          70  Block           52
+MET2        41          58  Block           54
+MET3        45          62  Block           58
+MET4        49          66  Block           62
+ 
+CVM          5              Facility        52    56    60    64    67
+DCPU1        1              Facility        18    21
+DCPU2        2              Facility        27    30
+DCPU3        3              Facility        36    39
+DCPU4        4              Facility        45    48
+ 
+QCPU1        1              Queue           17    19
+QCPU2        2              Queue           26    28
+QCPU3        3              Queue           35    37
+QCPU4        4              Queue           44    46
+QCVM         5              Queue           51    53
+ 
+1            1           5  Function        55
+2            2           8  Function        59
+4            4          11  Function        66
+ 
+1            1              Parameter       15    25    34    43    54    58    62
+ 
+1            1              Random Nmbr      5     8    11
+
+
+
+Storage Requirements (Bytes)
+
+Compiled Code:     1358
+Compiled Data:      328
+Miscellaneous:        0
+Entities:           794
+Common:           32720
+-----------------------
+Total:            35200
+
+
+
+GPSS/H Model Size:
+
+Control Statements      6
+Blocks                 54
+
+Simulation begins.
+
+Relative Clock: 6.0000   Absolute Clock: 6.0000
+
+
+
+Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total
+1                     6  11                    6  21                    2  31          1         1  MET2                  1 
+2                     6  CPU2        4         6  22                    2  32                    0  42                    0 
+3                     6  13                    2  23          1         2  33                    0  43                    0 
+CPU1        4         6  14                    2  24                    1  CCPU        1         3  44                    0 
+5                     2  15          1         2  25                    1  35                    2  MET3                  1 
+6                     2  16                    1  26                    6  36                    2  46                    1 
+7           1         2  17                    1  27                    6  37                    2  47                    0 
+8                     1  18                    6  CPU4        5         6  38          1         1  48                    0 
+9                     1  19                    6  29                    1  39                    0  MET4                  0 
+10                    6  CPU3        4         6  30                    1  40                    0  50                    0 
+
+
+
+Block Current     Total  
+51                    0 
+MEH1                  1 
+53                    0 
+54                    0 
+
+
+
+          --Avg-Util-During--                                                               
+Facility  Total  Avail  Unavl     Entries    Average   Current  Percent  Seizing  Preempting
+           Time   Time   Time               Time/Xact   Status   Avail     Xact      Xact   
+   DCPU1  0.833                         2       2.500    AVAIL                6 
+   DCPU2  0.833                         2       2.500    AVAIL                7 
+   DCPU3  0.833                         2       2.500    AVAIL                8 
+   DCPU4  0.833                         1       5.000    AVAIL                4 
+     CVM  0.167                         2       0.500    AVAIL                          1   
+
+
+
+   Queue     Maximum      Average       Total        Zero     Percent      Average      $Average     Qtable     Current
+            Contents     Contents      Entries     Entries     Zeros      Time/Unit    Time/Unit     Number    Contents
+   QCPU1           4        1.667           6           1       16.7         1.667         2.000                      4
+   QCPU2           4        1.667           6           1       16.7         1.667         2.000                      4
+   QCPU3           4        1.500           6           1       16.7         1.500         1.800                      4
+   QCPU4           5        1.667           6           1       16.7         1.667         2.000                      5
+    QCVM           1        0.000           3           2       66.7         0.000         0.000                      1
+
+
+
+  Random    Antithetic     Initial     Current      Sample   Chi-Square
+  Stream      Variates    Position    Position       Count   Uniformity
+       1           OFF      100000      100001           1       N/A
+
+Status of Common Storage
+
+   28984 bytes available
+    3736 in use
+    3848 used (max)
+
+Simulation complete.  Absolute Clock: 6.0000
+
+
+
+Total Block Executions: 119
+
+Blocks / second:        1032089
+
+Microseconds / Block:   0.97
+
+
+
+Elapsed Time Used (Sec)
+ 
+Pass1:           0.00
+Sym/Xref         0.00
+Pass2:           0.00
+Load/Ctrl:       0.00
+Execution:       0.00
+Output:          0.00
+---------------------
+Total:           0.01

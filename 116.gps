@@ -1,0 +1,11 @@
+       SIMULATE
+       GENERATE   5,1         
+       QUEUE      AAA
+       SEIZE      MEM
+       DEPART     AAA      
+       ADVANCE    7      
+       RELEASE    MEM     
+       TERMINATE  1
+
+       START      40  
+       END

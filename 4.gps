@@ -1,0 +1,28 @@
+        SIMULATE
+        INITIAL X$AAA,0 *изначально буфер пустой
+        INITIAL X$TR,0  *подсчет переходов
+        INITIAL X$NNN,15
+        GENERATE ,,,1,2   *генерация одного транзакта без задержки приоритет больший -> обработка сначала только него
+MET1    SPLIT 1,MET
+        ADVANCE 5       *задержка
+        TRANSFER ,MET1
+MET     TEST L X$AAA,X$NNN,MET2   *если не выполняется условие, то буфер переполнен
+        LINK AAA,FIFO
+
+MET2    TERMINATE         
+
+        GENERATE ,,,1,1 *генерация транзакта меньшего приоритета -> будет генериться только после захвата старшего, а старший начнет заново генериться только после захвата младшего
+MET3    TEST G X$AAA,0
+        SEIZE RTR
+        UNLINK AAA,MET2,1
+        ADVANCE 11      
+        RELEASE RTR
+        TRANSFER .985,,MET1
+        SAVEVALUE TR+,1  *команда перехода
+        SAVEVALUE AAA,0
+        TRANSFER ,MET3
+
+        GENERATE 1500
+        TERMINATE 1
+        START 1
+        END

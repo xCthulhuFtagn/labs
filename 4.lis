@@ -1,0 +1,512 @@
+    Student GPSS/H Release 3.70 (CT256)      6 May 2022   11:26:19     File: D:\GPSSH2016\labs\4.gps
+
+    Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
+ 
+        1     1                         SIMULATE
+        2     2                         INITIAL X$AAA,0 *изначально буфер пустой
+        3     3                         INITIAL X$TR,0  *подсчет переходов
+        4     4                         INITIAL X$NNN,15
+ 
+*** WARNING  642 - The next source statement exceeds 133 characters; only the first 133 characters will be processed
+ 
+        5     5              1          GENERATE ,,,1,2   *генерация одного транзакта без задержки приоритет больши
+        6     6              2  MET1    SPLIT 1,MET
+        7     7              3          ADVANCE 5       *задержка
+        8     8              4          TRANSFER ,MET1
+        9     9              5  MET     TEST L X$AAA,X$NNN,MET2   *если не выполняется условие, то буфер переполнен
+       10    10              6          LINK AAA,FIFO
+       11    11                  
+       12    12              7  MET2    TERMINATE         
+       13    13                  
+ 
+*** WARNING  642 - The next source statement exceeds 133 characters; only the first 133 characters will be processed
+ 
+       14    14              8          GENERATE ,,,1,1 *генерация транзакта меньшего приоритета -> будет генеритьс
+       15    15              9  MET3    TEST G X$AAA,0
+       16    16             10          SEIZE RTR
+       17    17             11          UNLINK AAA,MET2,1
+       18    18             12          ADVANCE 11      
+       19    19             13          RELEASE RTR
+       20    20             14          TRANSFER .985,,MET1
+       21    21             15          SAVEVALUE TR+,1  *команда перехода
+       22    22             16          SAVEVALUE AAA,0
+       23    23             17          TRANSFER ,MET3
+       24    24                  
+       25    25             18          GENERATE 1500
+       26    26             19          TERMINATE 1
+       27    27                         START 1
+       28    28                         END
+
+Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
+
+       Facilities: 1=RTR
+
+ Fullword Savexes: 1=AAA           2=TR            3=NNN
+
+      User Chains: 1=AAA
+
+Symbol   Value   EQU Defns  Context      References by Statement Number
+ 
+MET          5           9  Block            6
+MET1         2           6  Block            8    20
+MET2         7          12  Block            9    17
+MET3         9          15  Block           23
+ 
+RTR          1              Facility        16    19
+ 
+AAA          1              Fullword Svx     2     9    15    22
+NNN          3              Fullword Svx     4     9
+TR           2              Fullword Svx     3    21
+ 
+AAA          1              User Chain      10    17
+
+
+
+Storage Requirements (Bytes)
+
+Compiled Code:      790
+Compiled Data:      140
+Miscellaneous:        0
+Entities:           384
+Common:           10000
+-----------------------
+Total:            11314
+
+
+
+GPSS/H Model Size:
+
+Control Statements      6
+Blocks                 19
+
+
+
+Simulation begins.
+
+Error number 411 - Out of COMMON (For more COMMON, add/change REALLOCATE Stmt)
+
+
+Xact 1 from 4 (MET1+2) to 2 (MET1)    Absclock: 415.0000    Relclock: 415.0000    TTG: 1
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+1        4        MET1     CEC                   0.        415.0000          2      1        001FD4D0
+
+
+
+Relative Clock: 415.0000   Absolute Clock: 415.0000
+
+
+
+Block Current     Total  Block Current     Total  
+1                     1  11                    0 
+MET1                166  12                    0 
+3                    83  13                    0 
+4                    83  14                    0 
+MET                  83  15                    0 
+6          83        83  16                    0 
+MET2                  0  17                    0 
+8           1         1  18                    0 
+MET3                  0  19                    0 
+10                    0 
+
+
+
+CURRENT EVENTS CHAIN
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+1        4        MET1     CEC                   0.        415.0000          2      1        001FD4D0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+2        8        MET3     CEC      D G          ---         0.              1               001FD408
+
+
+
+FUTURE EVENTS CHAIN
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+3        "BIRTH"  18       FEC                   ---      1500.0000          0               001FD340
+
+
+
+Contents of User Chain      1 (     AAA)
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+4        6        --??--   UCH                   0.          0.              2      1        001FD258
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+5        6        --??--   UCH                   0.          0.              2      1        001FD1E8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+6        6        --??--   UCH                   0.          0.              2      1        001FD178
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+7        6        --??--   UCH                   0.          0.              2      1        001FD108
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+8        6        --??--   UCH                   0.          0.              2      1        001FD098
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+9        6        --??--   UCH                   0.          0.              2      1        001FD028
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+10       6        --??--   UCH                   0.          0.              2      1        001FCFB8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+11       6        --??--   UCH                   0.          0.              2      1        001FCF48
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+12       6        --??--   UCH                   0.          0.              2      1        001FCED8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+13       6        --??--   UCH                   0.          0.              2      1        001FCE68
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+14       6        --??--   UCH                   0.          0.              2      1        001FCDF8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+15       6        --??--   UCH                   0.          0.              2      1        001FCD88
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+16       6        --??--   UCH                   0.          0.              2      1        001FCD18
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+17       6        --??--   UCH                   0.          0.              2      1        001FCCA8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+18       6        --??--   UCH                   0.          0.              2      1        001FCC38
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+19       6        --??--   UCH                   0.          0.              2      1        001FCBC8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+20       6        --??--   UCH                   0.          0.              2      1        001FCB58
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+21       6        --??--   UCH                   0.          0.              2      1        001FCAE8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+22       6        --??--   UCH                   0.          0.              2      1        001FCA78
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+23       6        --??--   UCH                   0.          0.              2      1        001FCA08
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+24       6        --??--   UCH                   0.          0.              2      1        001FC998
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+25       6        --??--   UCH                   0.          0.              2      1        001FC928
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+26       6        --??--   UCH                   0.          0.              2      1        001FC8B8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+27       6        --??--   UCH                   0.          0.              2      1        001FC848
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+28       6        --??--   UCH                   0.          0.              2      1        001FC7D8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+29       6        --??--   UCH                   0.          0.              2      1        001FC768
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+30       6        --??--   UCH                   0.          0.              2      1        001FC6F8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+31       6        --??--   UCH                   0.          0.              2      1        001FC688
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+32       6        --??--   UCH                   0.          0.              2      1        001FC618
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+33       6        --??--   UCH                   0.          0.              2      1        001FC5A8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+34       6        --??--   UCH                   0.          0.              2      1        001FC538
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+35       6        --??--   UCH                   0.          0.              2      1        001FC4C8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+36       6        --??--   UCH                   0.          0.              2      1        001FC458
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+37       6        --??--   UCH                   0.          0.              2      1        001FC3E8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+38       6        --??--   UCH                   0.          0.              2      1        001FC378
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+39       6        --??--   UCH                   0.          0.              2      1        001FC308
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+40       6        --??--   UCH                   0.          0.              2      1        001FC298
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+41       6        --??--   UCH                   0.          0.              2      1        001FC228
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+42       6        --??--   UCH                   0.          0.              2      1        001FC1B8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+43       6        --??--   UCH                   0.          0.              2      1        001FC148
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+44       6        --??--   UCH                   0.          0.              2      1        001FC0D8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+45       6        --??--   UCH                   0.          0.              2      1        001FC068
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+46       6        --??--   UCH                   0.          0.              2      1        001FBFF8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+47       6        --??--   UCH                   0.          0.              2      1        001FBF88
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+48       6        --??--   UCH                   0.          0.              2      1        001FBF18
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+49       6        --??--   UCH                   0.          0.              2      1        001FBEA8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+50       6        --??--   UCH                   0.          0.              2      1        001FBE38
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+51       6        --??--   UCH                   0.          0.              2      1        001FBDC8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+52       6        --??--   UCH                   0.          0.              2      1        001FBD58
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+53       6        --??--   UCH                   0.          0.              2      1        001FBCE8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+54       6        --??--   UCH                   0.          0.              2      1        001FBC78
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+55       6        --??--   UCH                   0.          0.              2      1        001FBC08
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+56       6        --??--   UCH                   0.          0.              2      1        001FBB98
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+57       6        --??--   UCH                   0.          0.              2      1        001FBB28
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+58       6        --??--   UCH                   0.          0.              2      1        001FBAB8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+59       6        --??--   UCH                   0.          0.              2      1        001FBA48
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+60       6        --??--   UCH                   0.          0.              2      1        001FB9D8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+61       6        --??--   UCH                   0.          0.              2      1        001FB968
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+62       6        --??--   UCH                   0.          0.              2      1        001FB8F8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+63       6        --??--   UCH                   0.          0.              2      1        001FB888
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+64       6        --??--   UCH                   0.          0.              2      1        001FB818
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+65       6        --??--   UCH                   0.          0.              2      1        001FB7A8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+66       6        --??--   UCH                   0.          0.              2      1        001FB738
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+67       6        --??--   UCH                   0.          0.              2      1        001FB6C8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+68       6        --??--   UCH                   0.          0.              2      1        001FB658
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+69       6        --??--   UCH                   0.          0.              2      1        001FB5E8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+70       6        --??--   UCH                   0.          0.              2      1        001FB578
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+71       6        --??--   UCH                   0.          0.              2      1        001FB508
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+72       6        --??--   UCH                   0.          0.              2      1        001FB498
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+73       6        --??--   UCH                   0.          0.              2      1        001FB428
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+74       6        --??--   UCH                   0.          0.              2      1        001FB3B8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+75       6        --??--   UCH                   0.          0.              2      1        001FB348
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+76       6        --??--   UCH                   0.          0.              2      1        001FB2D8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+77       6        --??--   UCH                   0.          0.              2      1        001FB268
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+78       6        --??--   UCH                   0.          0.              2      1        001FB1F8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+79       6        --??--   UCH                   0.          0.              2      1        001FB188
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+80       6        --??--   UCH                   0.          0.              2      1        001FB118
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+81       6        --??--   UCH                   0.          0.              2      1        001FB0A8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+82       6        --??--   UCH                   0.          0.              2      1        001FB038
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+83       6        --??--   UCH                   0.          0.              2      1        001FAFC8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+84       6        --??--   UCH                   0.          0.              2      1        001FAF58
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+85       6        --??--   UCH                   0.          0.              2      1        001FAEE8
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+86       6        --??--   UCH                   0.          0.              2      1        001FAE78
+
+
+
+User Chain   Entries    Average      Average     Current     Maximum
+                       Time/Xact    Contents    Contents    Contents
+     AAA          83     210.000      42.000          83          83 
+
+
+
+Non-zero Fullword Savevalues:  (NAME : VALUE)
+
+     NNN:          15
+
+
+
+Status of Common Storage
+
+       8 bytes available
+    9992 in use
+    9992 used (max)
+
+
+
+Simulation complete.  Absolute Clock: 415.0000
+
+
+
+Total Block Executions: 500
+
+Blocks / second:        225215
+
+Microseconds / Block:   4.44
+
+
+
+Elapsed Time Used (Sec)
+ 
+Pass1:           0.00
+Sym/Xref         0.00
+Pass2:           0.00
+Load/Ctrl:       0.00
+Execution:       0.00
+Output:          0.03
+---------------------
+Total:           0.03

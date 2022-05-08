@@ -1,0 +1,59 @@
+        SIMULATE
+
+        INITIAL X$A1,0
+
+1 FUNCTION P3,E2
+1,10/2,36
+2 FUNCTION RN1,D3 
+.1,3/.3,4/1,2
+3 FUNCTION RN1,D2
+.3,5/1,4
+
+        GENERATE ,,,3,10
+        SAVEVALUE A1+,1
+        ASSIGN 1,1      *CPU NUMBER
+        ASSIGN 2,FN1   *ti
+        ASSIGN 3,X$A1    *REQUEST NUMBER
+CPU1    QUEUE Q1
+        SEIZE D1
+        DEPART Q1
+        ADVANCE 5,3
+        RELEASE D1
+        TRANSFER ,RAM
+
+        GENERATE 10,1,,,30
+        ASSIGN 1,2      *CPU NUMBER
+        ASSIGN 2,FN2    *ti
+CPU2    QUEUE Q2
+        SEIZE D2
+        DEPART Q2
+        ADVANCE 5,2
+        RELEASE D2
+        TRANSFER ,RAM
+
+
+        GENERATE ,,,8,20
+        ASSIGN 1,3      *CPU NUMBER
+        ASSIGN 2,FN3    *ti
+CPU3    QUEUE Q3
+        SEIZE D3
+        DEPART Q3
+        ADVANCE 4
+        RELEASE D3
+        TRANSFER ,RAM
+
+RAM 	QUEUE QRAM
+	SEIZE DRAM
+	DEPART QRAM
+	ADVANCE P2
+	RELEASE DRAM
+	TEST E P1,1,MET2
+	TRANSFER ,CPU1
+MET2 	TEST E P1,2,MET3
+	TRANSFER ,CPU2
+MET3 	TRANSFER ,CPU3
+
+        GENERATE 300
+        TERMINATE 1
+        START 1
+        END

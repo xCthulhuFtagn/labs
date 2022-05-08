@@ -1,0 +1,73 @@
+    Student GPSS/H Release 3.70 (CT256)      8 Oct 2018   10:48:55     File: Stas.gps
+
+    Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
+ 
+        1     1                 SIMULATE
+                                        +
+*** ERROR  4 - Unrecognizable statement
+ 
+        2     2              1     GENERATE 5,1
+        3     3                 QUEUE AAA
+                                      +
+*** ERROR  4 - Unrecognizable statement
+ 
+        4     4                 SEIZE MEM
+                                      +
+*** ERROR  4 - Unrecognizable statement
+ 
+        5     5                 DEPART AAA
+                                       +
+*** ERROR  4 - Unrecognizable statement
+ 
+        6     6                 ADVANCE 4
+                                        +
+*** ERROR  4 - Unrecognizable statement
+ 
+        7     7                 RELEASE MEM
+                                        +
+*** ERROR  4 - Unrecognizable statement
+ 
+        8     8                 TERMINATE
+                                         +
+*** ERROR  4 - Unrecognizable statement
+ 
+        9     9                 GENERATE 40
+                                         +
+*** ERROR  4 - Unrecognizable statement
+ 
+       10    10                 TERMINATE 1
+                                          +
+*** ERROR  4 - Unrecognizable statement
+ 
+       11    11                 START 1
+                                      +
+*** ERROR  4 - Unrecognizable statement
+ 
+       12    12                 END
+                                   +
+*** ERROR  4 - Unrecognizable statement
+ 
+       13    12                 	END		(COMPILER-GENERATED STATEMENT.  YOU FORGOT THIS.)
+ 
+*** WARNING  5 - Unexpected end-of-file in source stream
+ 
+
+Storage Requirements (Bytes)
+
+Compiled Code:       52
+Compiled Data:       40
+Miscellaneous:        0
+Entities:           176
+Common:           10000
+-----------------------
+Total:            10268
+
+
+
+GPSS/H Model Size:
+
+Control Statements      1
+Blocks                  1
+
+
+11 Syntactic errors

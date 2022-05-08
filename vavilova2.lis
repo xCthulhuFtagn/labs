@@ -1,0 +1,138 @@
+    Student GPSS/H Release 3.70 (CT256)      8 Oct 2018   10:40:31     File: vavilova2.gps
+
+    Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
+ 
+        1     1                   SIMULATE
+        2     2                   INITIAL	  X$AAA,0
+        3     3                   INITIAL    X$NNN,15
+        4     4                  
+        5     5              1    GENERATE   ,,,1,10    
+        6     6                      
+        7     7              2  LAB1 TEST LE    X$AAA,X$NNN
+        8     8              3    ADVANCE	  5,2
+        9     9                  
+       10    10              4    SAVEVALUE  AAA+,1
+       11    11                  
+       12    12              5    TRANSFER   ,LAB1
+       13    13                  
+       14    14              6    GENERATE   ,,,1,5
+       15    15                  
+       16    16              7  LAB2 TEST G     X$AAA,0
+       17    17              8    SEIZE      CPU
+       18    18              9    SAVEVALUE  AAA-,1
+       19    19             10    ADVANCE    20
+       20    20             11    RELEASE    CPU
+       21    21             12    TRANSFER   .98,,LAB2
+       22    22             13    SAVEVALUE  AAA,0
+       23    23             14    SAVEVALUE  CB+,1
+       24    24             15    TRANSFER   ,LAB2
+       25    25             16    GENERATE   2000
+       26    26             17    TERMINATE  1
+       27    27                   START      1
+       28    28                   END
+
+Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
+
+       Facilities: 1=CPU
+
+ Fullword Savexes: 1=AAA           2=NNN           3=CB
+
+Symbol   Value   EQU Defns  Context      References by Statement Number
+ 
+LAB1         2           7  Block           12
+LAB2         7          16  Block           21    24
+ 
+CPU          1              Facility        17    20
+ 
+AAA          1              Fullword Svx     2     7    10    16    18    22
+CB           3              Fullword Svx    23
+NNN          2              Fullword Svx     3     7
+
+
+
+Storage Requirements (Bytes)
+
+Compiled Code:      396
+Compiled Data:      120
+Miscellaneous:        0
+Entities:           304
+Common:           10000
+-----------------------
+Total:            10820
+
+
+
+GPSS/H Model Size:
+
+Control Statements      5
+Blocks                 17
+
+
+
+Simulation begins.
+
+Relative Clock: 2000.0000   Absolute Clock: 2000.0000
+
+
+
+Block Current     Total  Block Current     Total  
+1                     1  11                   99 
+LAB1                139  12                   99 
+3           1       139  13                    2 
+4                   138  14                    2 
+5                   138  15                    2 
+6                     1  16                    1 
+LAB2                100  17                    1 
+8                   100 
+9                   100 
+10          1       100 
+
+
+
+          --Avg-Util-During--                                                               
+Facility  Total  Avail  Unavl     Entries    Average   Current  Percent  Seizing  Preempting
+           Time   Time   Time               Time/Xact   Status   Avail     Xact      Xact   
+     CPU  0.993                       100      19.860    AVAIL                2 
+
+
+
+Non-zero Fullword Savevalues:  (NAME : VALUE)
+
+     AAA:           6,      NNN:          15,       CB:           2
+
+
+
+  Random    Antithetic     Initial     Current      Sample   Chi-Square
+  Stream      Variates    Position    Position       Count   Uniformity
+       1           OFF      100000      100238         238      0.86
+
+
+
+Status of Common Storage
+
+    9336 bytes available
+     664 in use
+     776 used (max)
+
+Simulation complete.  Absolute Clock: 2000.0000
+
+
+
+Total Block Executions: 1162
+
+Blocks / second:        9538273
+
+Microseconds / Block:   0.10
+
+
+
+Elapsed Time Used (Sec)
+ 
+Pass1:           0.01
+Sym/Xref         0.00
+Pass2:           0.01
+Load/Ctrl:       0.00
+Execution:       0.00
+Output:          0.00
+---------------------
+Total:           0.03

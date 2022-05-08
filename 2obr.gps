@@ -1,0 +1,73 @@
+        SIMULATE
+
+        GENERATE 20        
+        QUEUE QD1
+        SEIZE DD1
+        DEPART QD1
+        ADVANCE 3.5      
+        RELEASE DD1    
+        TRANSFER .5,LAB7,LAB6
+
+        GENERATE 20
+        QUEUE QD2
+        SEIZE DD2
+        DEPART QD2
+        ADVANCE 3
+        RELEASE DD2
+        TRANSFER .5,LAB4,LAB5
+
+        GENERATE 20
+        QUEUE QD3
+        SEIZE DD3
+        DEPART QD3
+        ADVANCE 3.25
+        RELEASE DD3
+        TRANSFER .8,LAB5,LAB6
+
+LAB4    QUEUE QD4
+        SEIZE DD4
+        DEPART QD4
+        ADVANCE 12
+        RELEASE DD4
+        TRANSFER .6,LAB7,LAB8
+
+LAB5    QUEUE QD5
+        SEIZE DD5
+        DEPART QD5
+        ADVANCE 8.5
+        RELEASE DD5
+        TRANSFER .3,LAB9,LAB8
+
+LAB6    QUEUE QD6
+        SEIZE DD6
+        DEPART QD6
+        ADVANCE 19
+        RELEASE DD6
+        TRANSFER .6,LAB7,LAB8
+
+LAB7    QUEUE QD7
+        SEIZE DD7
+        DEPART QD7
+        ADVANCE 4
+        RELEASE DD7
+        TRANSFER .6,LAB9,LAB8
+
+LAB8    QUEUE QD8
+        SEIZE DD8
+        DEPART QD8
+        ADVANCE 12
+        RELEASE DD8
+        TRANSFER ,LAB9
+
+LAB9    QUEUE QD9
+        SEIZE DD9
+        DEPART QD9
+        ADVANCE 5
+        RELEASE DD9
+        TERMINATE
+
+       GENERATE 484
+       TERMINATE 1
+
+        START 1  
+        END

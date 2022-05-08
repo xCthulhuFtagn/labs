@@ -1,0 +1,132 @@
+    Student GPSS/H Release 3.70 (CT256)      3 Oct 2018   17:08:00     File: laba3(113).gps
+
+    Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
+ 
+        1     1                   SIMULATE
+        2     2                   INITIAL	  X$AAA,0
+        3     3                   INITIAL    X$NNN,25
+        4     4              1    GENERATE   ,,,1,10         
+        5     5              2  LAB1 TEST LE    X$AAA,X$NNN
+        6     6              3    ADVANCE	  10
+        7     7              4    SAVEVALUE  AAA+,1
+        8     8              5    TRANSFER   ,LAB1
+        9     9              6    GENERATE   ,,,1,5
+       10    10              7  LAB2 TEST G     X$AAA,0
+       11    11              8    SEIZE      CPU
+       12    12              9    SAVEVALUE  AAA-,1
+       13    13             10    ADVANCE    20
+       14    14             11    RELEASE    CPU
+       15    15             12    TRANSFER   .965,,LAB2
+       16    16             13    SAVEVALUE  AAA,0
+       17    17             14    SAVEVALUE  CB+,1
+       18    18             15    TRANSFER   ,LAB2
+       19    19             16    GENERATE   3500
+       20    20             17    TERMINATE  1
+       21    21                   START      1
+       22    22                   END
+
+Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
+
+       Facilities: 1=CPU
+
+ Fullword Savexes: 1=AAA           2=NNN           3=CB
+
+Symbol   Value   EQU Defns  Context      References by Statement Number
+ 
+LAB1         2           5  Block            8
+LAB2         7          10  Block           15    18
+ 
+CPU          1              Facility        11    14
+ 
+AAA          1              Fullword Svx     2     5     7    10    12    16
+CB           3              Fullword Svx    17
+NNN          2              Fullword Svx     3     5
+
+
+
+Storage Requirements (Bytes)
+
+Compiled Code:      378
+Compiled Data:      120
+Miscellaneous:        0
+Entities:           304
+Common:           10000
+-----------------------
+Total:            10802
+
+
+
+GPSS/H Model Size:
+
+Control Statements      5
+Blocks                 17
+
+
+
+Simulation begins.
+
+Relative Clock: 3500.0000   Absolute Clock: 3500.0000
+
+
+
+Block Current     Total  Block Current     Total  
+1                     1  11                  169 
+LAB1                321  12                  169 
+3           1       321  13                   10 
+4                   320  14                   10 
+5                   320  15                   10 
+6                     1  16                    1 
+LAB2                170  17                    1 
+8                   170 
+9                   170 
+10          1       170 
+
+
+
+          --Avg-Util-During--                                                               
+Facility  Total  Avail  Unavl     Entries    Average   Current  Percent  Seizing  Preempting
+           Time   Time   Time               Time/Xact   Status   Avail     Xact      Xact   
+     CPU  0.969                       170      19.941    AVAIL                2 
+
+
+
+Non-zero Fullword Savevalues:  (NAME : VALUE)
+
+     AAA:          25,      NNN:          25,       CB:          10
+
+
+
+  Random    Antithetic     Initial     Current      Sample   Chi-Square
+  Stream      Variates    Position    Position       Count   Uniformity
+       1           OFF      100000      100169         169      0.71
+
+
+
+Status of Common Storage
+
+    9336 bytes available
+     664 in use
+     776 used (max)
+
+Simulation complete.  Absolute Clock: 3500.0000
+
+
+
+Total Block Executions: 2334
+
+Blocks / second:        12939068
+
+Microseconds / Block:   0.08
+
+
+
+Elapsed Time Used (Sec)
+ 
+Pass1:           0.02
+Sym/Xref         0.00
+Pass2:           0.01
+Load/Ctrl:       0.00
+Execution:       0.00
+Output:          0.00
+---------------------
+Total:           0.03

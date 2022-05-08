@@ -1,0 +1,76 @@
+	SIMULATE
+  	REALLOСATE COM,32720
+
+
+1 FUNCTION RN1,D2
+.5,1/1,1
+
+2 FUNCTION RN1,D3
+.1,3/.3,4/1,2
+
+4 FUNCTION RN1,D3
+.2,2/.5,6/1,4
+
+          GENERATE 1
+        ASSIGN 1,1      *CPU NUMBER
+        PRIORITY 127
+CPU1    QUEUE QCPU1
+          SEIZE DCPU1
+          DEPART QCPU1
+          ADVANCE 5
+          RELEASE DCPU1
+          TRANSFER ,CCPU
+
+          GENERATE 1
+        ASSIGN 1,2      *CPU NUMBER
+CPU2    QUEUE QCPU2
+          SEIZE DCPU2
+          DEPART QCPU2
+          ADVANCE 5
+          RELEASE DCPU2
+          TRANSFER ,CCPU
+
+          GENERATE 1
+        ASSIGN 1,3      *CPU NUMBER
+CPU3    QUEUE QCPU3
+          SEIZE DCPU3
+          DEPART QCPU3
+          ADVANCE 4
+          RELEASE DCPU3
+          TRANSFER ,CCPU
+
+          GENERATE 1
+        ASSIGN 1,4      *CPU NUMBER
+CPU4    QUEUE QCPU4
+          SEIZE DCPU4
+          DEPART QCPU4
+          ADVANCE 6
+          RELEASE DCPU4
+          TRANSFER ,CCPU
+
+CCPU    QUEUE QCVM
+        PREEPT CVM,PR,MEH1,,RE
+        DEPART QCVM
+        TEST E P1,1,MET2
+        ADVANCE FN1
+	RETURN CVM
+        TRANSFER ,CPU1
+MET2     TEST E P1,2,MET3
+        ADVANCE FN2
+	RETURN CVM
+        TRANSFER ,CPU2
+MET3     TEST E P1,3,MET4
+        ADVANCE 5
+	RETURN CVM
+        TRANSFER ,CPU3
+MET4    ADVANCE FN4
+	RETURN CVM
+        TRANSFER ,CPU4
+
+MEH1    TERMINATE 1
+
+
+        GENERATE 350
+        TERMINATE 1
+        START 1
+        END
