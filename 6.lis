@@ -1,4 +1,4 @@
-    Student GPSS/H Release 3.70 (CT256)      7 May 2022   23:16:27     File: D:\GPSSH2016\labs\6.gps
+    Student GPSS/H Release 3.70 (CT256)     11 May 2022   21:45:54     File: H:\GPSSH2016\labs\6.gps
 
     Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
  
@@ -53,13 +53,13 @@
        49    49             33            TRANSFER ,CCPU
        50    50                  
        51    51             34  CCPU    QUEUE QCVM
-       52    52             35          PREEPT CVM,PR,MEH1,,RE
+       52    52             35          PREEMPT CVM,PR,MEH1,,RE
        53    53             36          DEPART QCVM
        54    54             37          TEST E P1,1,MET2
        55    55             38          ADVANCE FN1
        56    56             39  	RETURN CVM
 
-    Student GPSS/H Release 3.70 (CT256)      7 May 2022   23:16:27     File: D:\GPSSH2016\labs\6.gps
+    Student GPSS/H Release 3.70 (CT256)     11 May 2022   21:45:54     File: H:\GPSSH2016\labs\6.gps
 
     Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
  
@@ -76,7 +76,7 @@
        67    67             50  	RETURN CVM
        68    68             51          TRANSFER ,CPU4
        69    69                  
-       70    70             52  MEH1    TERMINATE 1
+       70    70             52  MEH1    TERMINATE
        71    71                  
        72    72                  
        73    73             53          GENERATE 350
@@ -149,72 +149,1854 @@ Blocks                 54
 
 Simulation begins.
 
-Relative Clock: 6.0000   Absolute Clock: 6.0000
+Error number 411 - Out of COMMON (For more COMMON, add/change REALLOCATE Stmt)
+
+
+Xact 263 from BIRTH to 10 (CPU1+6)    Absclock: 66.0000    Relclock: 66.0000    TTG: 1
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+263      "BIRTH"  10       CEC                  66.0000     66.0000          0               006811D0
+
+
+
+Relative Clock: 66.0000   Absolute Clock: 66.0000
 
 
 
 Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total
-1                     6  11                    6  21                    2  31          1         1  MET2                  1 
-2                     6  CPU2        4         6  22                    2  32                    0  42                    0 
-3                     6  13                    2  23          1         2  33                    0  43                    0 
-CPU1        4         6  14                    2  24                    1  CCPU        1         3  44                    0 
-5                     2  15          1         2  25                    1  35                    2  MET3                  1 
-6                     2  16                    1  26                    6  36                    2  46                    1 
-7           1         2  17                    1  27                    6  37                    2  47                    0 
-8                     1  18                    6  CPU4        5         6  38          1         1  48                    0 
-9                     1  19                    6  29                    1  39                    0  MET4                  0 
-10                    6  CPU3        4         6  30                    1  40                    0  50                    0 
+1                    66  11                   65  21                   17  31          1        11  MET2                 19 
+2                    66  CPU2       56        70  22                   17  32                   10  42                    6 
+3                    66  13                   14  23          1        17  33                   10  43                    5 
+CPU1       64        78  14                   14  24                   16  CCPU       20        52  44                    5 
+5                    14  15          1        14  25                   16  35                   32  MET3                 13 
+6                    14  16                   13  26                   65  36                   32  46          1         8 
+7           1        14  17                   13  27                   65  37                   32  47                    0 
+8                    13  18                   65  CPU4       55        66  38          1        13  48                    0 
+9                    13  19                   65  29                   11  39                   12  MET4                  5 
+10                   65  CPU3       48        65  30                   11  40                   12  50                    1 
 
 
 
 Block Current     Total  
-51                    0 
-MEH1                  1 
+51                    1 
+MEH1                 12 
 53                    0 
 54                    0 
+
+
+
+CURRENT EVENTS CHAIN
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+50       CPU1     5        CEC     SD           13.0000     13.0000        127               00688DC0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+54       CPU1     5        CEC     SD           14.0000     14.0000        127               00687540
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+58       CPU1     5        CEC     SD           15.0000     15.0000        127               00687350
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+62       CPU1     5        CEC     SD           16.0000     16.0000        127               00687150
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+10       CPU1     5        CEC     SD            3.0000     17.0000        127               00688A38
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+66       CPU1     5        CEC     SD           17.0000     17.0000        127               00686F40
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+70       CPU1     5        CEC     SD           18.0000     18.0000        127               00688B98
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+74       CPU1     5        CEC     SD           19.0000     19.0000        127               00686BD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+78       CPU1     5        CEC     SD           20.0000     20.0000        127               006869C0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+82       CPU1     5        CEC     SD           21.0000     21.0000        127               006867D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+14       CPU1     5        CEC     SD            4.0000     22.0000        127               00688848
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+86       CPU1     5        CEC     SD           22.0000     22.0000        127               006865C0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+90       CPU1     5        CEC     SD           23.0000     23.0000        127               00688B28
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+94       CPU1     5        CEC     SD           24.0000     24.0000        127               00686250
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+98       CPU1     5        CEC     SD           25.0000     25.0000        127               00686050
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+102      CPU1     5        CEC     SD           26.0000     26.0000        127               00685E40
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+18       CPU1     5        CEC     SD            5.0000     27.0000        127               00688648
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+106      CPU1     5        CEC     SD           27.0000     27.0000        127               00685C40
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+110      CPU1     5        CEC     SD           28.0000     28.0000        127               00688948
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+114      CPU1     5        CEC     SD           29.0000     29.0000        127               006858D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+118      CPU1     5        CEC     SD           30.0000     30.0000        127               006856C0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+122      CPU1     5        CEC     SD           31.0000     31.0000        127               006854C0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+22       CPU1     5        CEC     SD            6.0000     32.0000        127               00688430
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+126      CPU1     5        CEC     SD           32.0000     32.0000        127               006852C0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+130      CPU1     5        CEC     SD           33.0000     33.0000        127               00688748
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+134      CPU1     5        CEC     SD           34.0000     34.0000        127               00684F40
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+138      CPU1     5        CEC     SD           35.0000     35.0000        127               00684D40
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+142      CPU1     5        CEC     SD           36.0000     36.0000        127               00684B50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+1        CPU1     5        CEC     SD            1.0000     37.0000        127               00688F68
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+146      CPU1     5        CEC     SD           37.0000     37.0000        127               006887C8
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+150      CPU1     5        CEC     SD           38.0000     38.0000        127               006847C0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+154      CPU1     5        CEC     SD           39.0000     39.0000        127               006845D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+158      CPU1     5        CEC     SD           40.0000     40.0000        127               006843D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+162      CPU1     5        CEC     SD           41.0000     41.0000        127               006841D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+26       CPU1     5        CEC     SD            7.0000     42.0000        127               00688240
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+166      CPU1     5        CEC     SD           42.0000     42.0000        127               00683FC0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+170      CPU1     5        CEC     SD           43.0000     43.0000        127               00688548
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+174      CPU1     5        CEC     SD           44.0000     44.0000        127               00683C40
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+178      CPU1     5        CEC     SD           45.0000     45.0000        127               00683A50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+182      CPU1     5        CEC     SD           46.0000     46.0000        127               00683840
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+30       CPU1     5        CEC     SD            8.0000     47.0000        127               00688E30
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+186      CPU1     5        CEC     SD           47.0000     47.0000        127               00683640
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+190      CPU1     5        CEC     SD           48.0000     48.0000        127               006886C8
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+194      CPU1     5        CEC     SD           49.0000     49.0000        127               006832D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+198      CPU1     5        CEC     SD           50.0000     50.0000        127               006830C0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+202      CPU1     5        CEC     SD           51.0000     51.0000        127               00682ED0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+34       CPU1     5        CEC     SD            9.0000     52.0000        127               00687ED0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+206      CPU1     5        CEC     SD           52.0000     52.0000        127               00682CC0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+210      CPU1     5        CEC     SD           53.0000     53.0000        127               00688350
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+214      CPU1     5        CEC     SD           54.0000     54.0000        127               00682940
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+218      CPU1     5        CEC     SD           55.0000     55.0000        127               00682740
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+222      CPU1     5        CEC     SD           56.0000     56.0000        127               00682540
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+38       CPU1     5        CEC     SD           10.0000     57.0000        127               00687CC0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+226      CPU1     5        CEC     SD           57.0000     57.0000        127               00682340
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+230      CPU1     5        CEC     SD           58.0000     58.0000        127               00688160
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+234      CPU1     5        CEC     SD           59.0000     59.0000        127               00681FD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+238      CPU1     5        CEC     SD           60.0000     60.0000        127               00681DD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+242      CPU1     5        CEC     SD           61.0000     61.0000        127               00681BD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+42       CPU1     5        CEC     SD           11.0000     62.0000        127               00687AD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+246      CPU1     5        CEC     SD           62.0000     62.0000        127               006884C8
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+250      CPU1     5        CEC     SD           63.0000     63.0000        127               00681840
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+254      CPU1     5        CEC     SD           64.0000     64.0000        127               00681650
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+258      CPU1     5        CEC     SD           65.0000     65.0000        127               00681440
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+262      CPU1     5        CEC     SD           66.0000     66.0000        127               00681240
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+49       CPU4     29       CEC     SD           12.0000     12.0000          0               00687760
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+53       CPU4     29       CEC     SD           13.0000     13.0000          0               006875D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+55       CPU2     13       CEC     SD           14.0000     14.0000          0               006874D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+57       CPU4     29       CEC     SD           14.0000     14.0000          0               006873D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+59       CPU2     13       CEC     SD           15.0000     15.0000          0               006872D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+61       CPU4     29       CEC     SD           15.0000     15.0000          0               006871D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+63       CPU2     13       CEC     SD           16.0000     16.0000          0               006870D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+65       CPU4     29       CEC     SD           16.0000     16.0000          0               00686FD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+67       CPU2     13       CEC     SD           17.0000     17.0000          0               00686ED0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+69       CPU4     29       CEC     SD           17.0000     17.0000          0               00686DE0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+71       CPU2     13       CEC     SD           18.0000     18.0000          0               00686D50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+72       CPU3     21       CEC     SD           18.0000     18.0000          0               00686CD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+73       CPU4     29       CEC     SD           18.0000     18.0000          0               00686C50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+7        CPU2     13       CEC     SD            2.0000     19.0000          0               00688C08
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+75       CPU2     13       CEC     SD           19.0000     19.0000          0               00686B50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+76       CPU3     21       CEC     SD           19.0000     19.0000          0               00686AD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+77       CPU4     29       CEC     SD           19.0000     19.0000          0               00686A50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+79       CPU2     13       CEC     SD           20.0000     20.0000          0               00686950
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+80       CPU3     21       CEC     SD           20.0000     20.0000          0               006868D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+81       CPU4     29       CEC     SD           20.0000     20.0000          0               00686850
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+83       CPU2     13       CEC     SD           21.0000     21.0000          0               00686750
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+84       CPU3     21       CEC     SD           21.0000     21.0000          0               006866D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+85       CPU4     29       CEC     SD           21.0000     21.0000          0               00686650
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+87       CPU2     13       CEC     SD           22.0000     22.0000          0               00686550
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+88       CPU3     21       CEC     SD           22.0000     22.0000          0               006864E0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+89       CPU4     29       CEC     SD           22.0000     22.0000          0               00686460
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+91       CPU2     13       CEC     SD           23.0000     23.0000          0               006863D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+92       CPU3     21       CEC     SD           23.0000     23.0000          0               00686350
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+93       CPU4     29       CEC     SD           23.0000     23.0000          0               006862D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+95       CPU2     13       CEC     SD           24.0000     24.0000          0               006861D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+96       CPU3     21       CEC     SD           24.0000     24.0000          0               00686150
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+97       CPU4     29       CEC     SD           24.0000     24.0000          0               006860D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+99       CPU2     13       CEC     SD           25.0000     25.0000          0               00685FD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+100      CPU3     21       CEC     SD           25.0000     25.0000          0               00685F50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+101      CPU4     29       CEC     SD           25.0000     25.0000          0               00685ED0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+103      CPU2     13       CEC     SD           26.0000     26.0000          0               00685DD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+104      CPU3     21       CEC     SD           26.0000     26.0000          0               00685D50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+105      CPU4     29       CEC     SD           26.0000     26.0000          0               00685CD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+107      CPU2     13       CEC     SD           27.0000     27.0000          0               00685BD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+108      CPU3     21       CEC     SD           27.0000     27.0000          0               00685B60
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+109      CPU4     29       CEC     SD           27.0000     27.0000          0               00685AE0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+111      CPU2     13       CEC     SD           28.0000     28.0000          0               00685A50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+112      CPU3     21       CEC     SD           28.0000     28.0000          0               006859D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+113      CPU4     29       CEC     SD           28.0000     28.0000          0               00685950
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+115      CPU2     13       CEC     SD           29.0000     29.0000          0               00685850
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+116      CPU3     21       CEC     SD           29.0000     29.0000          0               006857D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+117      CPU4     29       CEC     SD           29.0000     29.0000          0               00685750
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+11       CPU2     13       CEC     SD            3.0000     30.0000          0               006889C8
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+119      CPU2     13       CEC     SD           30.0000     30.0000          0               00685650
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+120      CPU3     21       CEC     SD           30.0000     30.0000          0               006855D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+121      CPU4     29       CEC     SD           30.0000     30.0000          0               00685550
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+123      CPU2     13       CEC     SD           31.0000     31.0000          0               00685450
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+124      CPU3     21       CEC     SD           31.0000     31.0000          0               006853D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+125      CPU4     29       CEC     SD           31.0000     31.0000          0               00685350
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+127      CPU2     13       CEC     SD           32.0000     32.0000          0               00685250
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+128      CPU3     21       CEC     SD           32.0000     32.0000          0               006851E0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+129      CPU4     29       CEC     SD           32.0000     32.0000          0               00685160
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+131      CPU2     13       CEC     SD           33.0000     33.0000          0               006850D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+132      CPU3     21       CEC     SD           33.0000     33.0000          0               00685050
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+133      CPU4     29       CEC     SD           33.0000     33.0000          0               00684FD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+13       CPU4     29       CEC     SD            3.0000     34.0000          0               006888C8
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+135      CPU2     13       CEC     SD           34.0000     34.0000          0               00684ED0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+136      CPU3     21       CEC     SD           34.0000     34.0000          0               00684E50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+137      CPU4     29       CEC     SD           34.0000     34.0000          0               00684DD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+139      CPU2     13       CEC     SD           35.0000     35.0000          0               00684CD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+140      CPU3     21       CEC     SD           35.0000     35.0000          0               00684C50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+141      CPU4     29       CEC     SD           35.0000     35.0000          0               00684BD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+27       CCPU     35       CEC     SD            7.0000     36.0000          0               006881D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+143      CPU2     13       CEC     SD           36.0000     36.0000          0               00684AD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+144      CPU3     21       CEC     SD           36.0000     36.0000          0               00684A50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+145      CPU4     29       CEC     SD           36.0000     36.0000          0               006849D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+25       CCPU     35       CEC     SD            6.0000     37.0000          0               006882D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+36       CCPU     35       CEC     SD            9.0000     37.0000          0               00687DD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+147      CPU2     13       CEC     SD           37.0000     37.0000          0               00684940
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+148      CPU3     21       CEC     SD           37.0000     37.0000          0               006848D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+149      CPU4     29       CEC     SD           37.0000     37.0000          0               00684850
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+151      CPU2     13       CEC     SD           38.0000     38.0000          0               00684750
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+152      CPU3     21       CEC     SD           38.0000     38.0000          0               006846D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+153      CPU4     29       CEC     SD           38.0000     38.0000          0               00684650
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+155      CPU2     13       CEC     SD           39.0000     39.0000          0               00684550
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+156      CPU3     21       CEC     SD           39.0000     39.0000          0               006844D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+157      CPU4     29       CEC     SD           39.0000     39.0000          0               00684450
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+159      CPU2     13       CEC     SD           40.0000     40.0000          0               00684350
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+160      CPU3     21       CEC     SD           40.0000     40.0000          0               006842D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+161      CPU4     29       CEC     SD           40.0000     40.0000          0               00684250
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+31       CCPU     35       CEC     SD            8.0000     41.0000          0               00688050
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+40       CCPU     35       CEC     SD           10.0000     41.0000          0               00687BD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+163      CPU2     13       CEC     SD           41.0000     41.0000          0               00684150
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+164      CPU3     21       CEC     SD           41.0000     41.0000          0               006840D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+165      CPU4     29       CEC     SD           41.0000     41.0000          0               00684050
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+167      CPU2     13       CEC     SD           42.0000     42.0000          0               00683F50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+168      CPU3     21       CEC     SD           42.0000     42.0000          0               00683EE0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+169      CPU4     29       CEC     SD           42.0000     42.0000          0               00683E60
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+29       CCPU     35       CEC     SD            7.0000     43.0000          0               006880E0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+171      CPU2     13       CEC     SD           43.0000     43.0000          0               00683DD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+172      CPU3     21       CEC     SD           43.0000     43.0000          0               00683D50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+173      CPU4     29       CEC     SD           43.0000     43.0000          0               00683CD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+175      CPU2     13       CEC     SD           44.0000     44.0000          0               00683BD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+176      CPU3     21       CEC     SD           44.0000     44.0000          0               00683B50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+177      CPU4     29       CEC     SD           44.0000     44.0000          0               00683AD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+44       CCPU     35       CEC     SD           11.0000     45.0000          0               006879D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+179      CPU2     13       CEC     SD           45.0000     45.0000          0               006839D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+180      CPU3     21       CEC     SD           45.0000     45.0000          0               00683950
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+181      CPU4     29       CEC     SD           45.0000     45.0000          0               006838D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+2        CCPU     35       CEC     SD            1.0000     46.0000          0               00688EA0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+183      CPU2     13       CEC     SD           46.0000     46.0000          0               006837D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+184      CPU3     21       CEC     SD           46.0000     46.0000          0               00683750
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+185      CPU4     29       CEC     SD           46.0000     46.0000          0               006836D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+187      CPU2     13       CEC     SD           47.0000     47.0000          0               006835D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+188      CPU3     21       CEC     SD           47.0000     47.0000          0               00683560
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+189      CPU4     29       CEC     SD           47.0000     47.0000          0               006834E0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+191      CPU2     13       CEC     SD           48.0000     48.0000          0               00683450
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+192      CPU3     21       CEC     SD           48.0000     48.0000          0               006833D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+193      CPU4     29       CEC     SD           48.0000     48.0000          0               00683350
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+33       CCPU     35       CEC     SD            8.0000     49.0000          0               00687F50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+48       CCPU     35       CEC     SD           12.0000     49.0000          0               006877E0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+195      CPU2     13       CEC     SD           49.0000     49.0000          0               00683250
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+196      CPU3     21       CEC     SD           49.0000     49.0000          0               006831D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+197      CPU4     29       CEC     SD           49.0000     49.0000          0               00683150
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+199      CPU2     13       CEC     SD           50.0000     50.0000          0               00683050
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+200      CPU3     21       CEC     SD           50.0000     50.0000          0               00682FD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+201      CPU4     29       CEC     SD           50.0000     50.0000          0               00682F50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+35       CCPU     35       CEC     SD            9.0000     51.0000          0               00687E50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+203      CPU2     13       CEC     SD           51.0000     51.0000          0               00682E50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+204      CPU3     21       CEC     SD           51.0000     51.0000          0               00682DD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+205      CPU4     29       CEC     SD           51.0000     51.0000          0               00682D50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+207      CPU2     13       CEC     SD           52.0000     52.0000          0               00682C50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+208      CPU3     21       CEC     SD           52.0000     52.0000          0               00682BE0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+209      CPU4     29       CEC     SD           52.0000     52.0000          0               00682B60
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+52       CCPU     35       CEC     SD           13.0000     53.0000          0               00687650
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+211      CPU2     13       CEC     SD           53.0000     53.0000          0               00682AD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+212      CPU3     21       CEC     SD           53.0000     53.0000          0               00682A50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+213      CPU4     29       CEC     SD           53.0000     53.0000          0               006829D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+19       CPU2     13       CEC     SD            5.0000     54.0000          0               006885C8
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+215      CPU2     13       CEC     SD           54.0000     54.0000          0               006828D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+216      CPU3     21       CEC     SD           54.0000     54.0000          0               00682850
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+217      CPU4     29       CEC     SD           54.0000     54.0000          0               006827D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+37       CCPU     35       CEC     SD            9.0000     55.0000          0               00687D50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+219      CPU2     13       CEC     SD           55.0000     55.0000          0               006826D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+220      CPU3     21       CEC     SD           55.0000     55.0000          0               00682650
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+221      CPU4     29       CEC     SD           55.0000     55.0000          0               006825D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+39       CCPU     35       CEC     SD           10.0000     56.0000          0               00687C50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+223      CPU2     13       CEC     SD           56.0000     56.0000          0               006824D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+224      CPU3     21       CEC     SD           56.0000     56.0000          0               00682450
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+225      CPU4     29       CEC     SD           56.0000     56.0000          0               006823D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+56       CCPU     35       CEC     SD           14.0000     57.0000          0               00687450
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+227      CPU2     13       CEC     SD           57.0000     57.0000          0               006822D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+228      CPU3     21       CEC     SD           57.0000     57.0000          0               00682260
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+229      CPU4     29       CEC     SD           57.0000     57.0000          0               006821E0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+231      CPU2     13       CEC     SD           58.0000     58.0000          0               00682150
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+232      CPU3     21       CEC     SD           58.0000     58.0000          0               006820D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+233      CPU4     29       CEC     SD           58.0000     58.0000          0               00682050
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+235      CPU2     13       CEC     SD           59.0000     59.0000          0               00681F50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+236      CPU3     21       CEC     SD           59.0000     59.0000          0               00681ED0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+237      CPU4     29       CEC     SD           59.0000     59.0000          0               00681E50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+239      CPU2     13       CEC     SD           60.0000     60.0000          0               00681D50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+240      CPU3     21       CEC     SD           60.0000     60.0000          0               00681CD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+241      CPU4     29       CEC     SD           60.0000     60.0000          0               00681C50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+41       CCPU     35       CEC     SD           10.0000     61.0000          0               00687B50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+43       CCPU     35       CEC     SD           11.0000     61.0000          0               00687A50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+60       CCPU     35       CEC     SD           15.0000     61.0000          0               00687250
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+243      CPU2     13       CEC     SD           61.0000     61.0000          0               00681B50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+244      CPU3     21       CEC     SD           61.0000     61.0000          0               00681AD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+245      CPU4     29       CEC     SD           61.0000     61.0000          0               00681A50
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+247      CPU2     13       CEC     SD           62.0000     62.0000          0               006819C0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+248      CPU3     21       CEC     SD           62.0000     62.0000          0               00681950
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+249      CPU4     29       CEC     SD           62.0000     62.0000          0               006818D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+251      CPU2     13       CEC     SD           63.0000     63.0000          0               006817D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+252      CPU3     21       CEC     SD           63.0000     63.0000          0               00681750
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+253      CPU4     29       CEC     SD           63.0000     63.0000          0               006816D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+23       CPU2     13       CEC     SD            6.0000     64.0000          0               006883C0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+255      CPU2     13       CEC     SD           64.0000     64.0000          0               006815D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+256      CPU3     21       CEC     SD           64.0000     64.0000          0               00681550
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+257      CPU4     29       CEC     SD           64.0000     64.0000          0               006814D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+64       CCPU     35       CEC     SD           16.0000     65.0000          0               00687050
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+259      CPU2     13       CEC     SD           65.0000     65.0000          0               006813D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+260      CPU3     21       CEC     SD           65.0000     65.0000          0               00681350
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+261      CPU4     29       CEC     SD           65.0000     65.0000          0               006812D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+47       CCPU     35       CEC     SD           12.0000     66.0000          0               00687850
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+263      "BIRTH"  10       CEC                  66.0000     66.0000          0               006811D0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+264      "BIRTH"  18       CEC                   ---        66.0000          0               00681150
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+265      "BIRTH"  26       CEC                   ---        66.0000          0               006810D0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+32       46       MEH1     CEC      D            8.0000     69.0000          0               00687FD0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+FUTURE EVENTS CHAIN
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+45       31       32       FEC      D           11.0000     67.0000          0               00687950
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            4           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+6        38       39       FEC                   2.0000     67.0000        127               00688CE0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+266      "BIRTH"  1        FEC                   ---        67.0000          0               00681050
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+68       23       24       FEC      D           17.0000     69.0000          0               00686E60
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            3           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+46       7        8        FEC      D           12.0000     71.0000        127               006878C0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            1           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+51       15       16       FEC      D           13.0000     71.0000          0               006876D0
+
+                     1           2           3           4           5           6           7           8           9          10
+PH   1-10            2           0           0           0           0           0           0           0           0           0
+
+Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+
+5        "BIRTH"  53       FEC                   ---       350.0000          0               00688D50
 
 
 
           --Avg-Util-During--                                                               
 Facility  Total  Avail  Unavl     Entries    Average   Current  Percent  Seizing  Preempting
            Time   Time   Time               Time/Xact   Status   Avail     Xact      Xact   
-   DCPU1  0.833                         2       2.500    AVAIL                6 
-   DCPU2  0.833                         2       2.500    AVAIL                7 
-   DCPU3  0.833                         2       2.500    AVAIL                8 
-   DCPU4  0.833                         1       5.000    AVAIL                4 
-     CVM  0.167                         2       0.500    AVAIL                          1   
-
-
-
+   DCPU1  0.985                        14       4.643    AVAIL               46 
+   DCPU2  0.985                        14       4.643    AVAIL               51 
+   DCPU3  0.985                        17       3.824    AVAIL               68 
+   DCPU4  0.985                        11       5.909    AVAIL               45 
+     CVM  0.924                        32       1.906    AVAIL                          6   
+
    Queue     Maximum      Average       Total        Zero     Percent      Average      $Average     Qtable     Current
             Contents     Contents      Entries     Entries     Zeros      Time/Unit    Time/Unit     Number    Contents
-   QCPU1           4        1.667           6           1       16.7         1.667         2.000                      4
-   QCPU2           4        1.667           6           1       16.7         1.667         2.000                      4
-   QCPU3           4        1.500           6           1       16.7         1.500         1.800                      4
-   QCPU4           5        1.667           6           1       16.7         1.667         2.000                      5
-    QCVM           1        0.000           3           2       66.7         0.000         0.000                      1
+   QCPU1          64       31.333          78           1        1.3        26.513        26.857                     64
+   QCPU2          57       27.939          70           1        1.4        26.343        26.725                     56
+   QCPU3          48       24.000          65           1        1.5        24.369        24.750                     48
+   QCPU4          55       27.152          66           1        1.5        27.152        27.569                     55
+    QCVM          20        8.803          52          14       26.9        11.173        15.289                     20
 
 
 
   Random    Antithetic     Initial     Current      Sample   Chi-Square
   Stream      Variates    Position    Position       Count   Uniformity
-       1           OFF      100000      100001           1       N/A
-
+       1           OFF      100000      100024          24       N/A
+
+
+
 Status of Common Storage
 
-   28984 bytes available
-    3736 in use
-    3848 used (max)
-
-Simulation complete.  Absolute Clock: 6.0000
+      72 bytes available
+   32648 in use
+   32648 used (max)
 
 
 
-Total Block Executions: 119
+Simulation complete.  Absolute Clock: 66.0000
 
-Blocks / second:        1032089
 
-Microseconds / Block:   0.97
+
+Total Block Executions: 1399
+
+Blocks / second:        11457822
+
+Microseconds / Block:   0.09
 
 
 
@@ -225,6 +2007,6 @@ Sym/Xref         0.00
 Pass2:           0.00
 Load/Ctrl:       0.00
 Execution:       0.00
-Output:          0.00
+Output:          0.25
 ---------------------
-Total:           0.01
+Total:           0.25
