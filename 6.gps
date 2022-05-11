@@ -11,55 +11,53 @@
 4 FUNCTION RN1,D3
 .2,2/.5,6/1,4
 
-          GENERATE 1
+        GENERATE 5
         ASSIGN 1,1      *CPU NUMBER
         PRIORITY 127
 CPU1    QUEUE QCPU1
-          SEIZE DCPU1
-          DEPART QCPU1
-          ADVANCE 5
-          RELEASE DCPU1
-          TRANSFER ,CCPU
+        SEIZE DCPU1
+        DEPART QCPU1
+        ADVANCE 5
+        RELEASE DCPU1
+        TRANSFER ,CCPU
 
-          GENERATE 1
+        GENERATE 5
         ASSIGN 1,2      *CPU NUMBER
 CPU2    QUEUE QCPU2
-          SEIZE DCPU2
-          DEPART QCPU2
-          ADVANCE 5
-          RELEASE DCPU2
-          TRANSFER ,CCPU
+        SEIZE DCPU2
+        DEPART QCPU2
+        ADVANCE 5
+        RELEASE DCPU2
+        TRANSFER ,CCPU
 
-          GENERATE 1
+        GENERATE 5
         ASSIGN 1,3      *CPU NUMBER
 CPU3    QUEUE QCPU3
-          SEIZE DCPU3
-          DEPART QCPU3
-          ADVANCE 4
-          RELEASE DCPU3
-          TRANSFER ,CCPU
+        SEIZE DCPU3
+        DEPART QCPU3
+        ADVANCE 4
+        RELEASE DCPU3
+        TRANSFER ,CCPU
 
-          GENERATE 1
+        GENERATE 5
         ASSIGN 1,4      *CPU NUMBER
 CPU4    QUEUE QCPU4
-          SEIZE DCPU4
-          DEPART QCPU4
-          ADVANCE 6
-          RELEASE DCPU4
-          TRANSFER ,CCPU
+        SEIZE DCPU4
+        DEPART QCPU4
+        ADVANCE 6
+        RELEASE DCPU4
+        TRANSFER ,CCPU
 
-CCPU    QUEUE QCVM
-        PREEMPT CVM,PR,MEH1,,RE
-        DEPART QCVM
+CCPU    PREEMPT CVM,PR,MEH1,,RE
         TEST E P1,1,MET2
         ADVANCE FN1
 	RETURN CVM
         TRANSFER ,CPU1
-MET2     TEST E P1,2,MET3
+MET2    TEST E P1,2,MET3
         ADVANCE FN2
 	RETURN CVM
         TRANSFER ,CPU2
-MET3     TEST E P1,3,MET4
+MET3    TEST E P1,3,MET4
         ADVANCE 5
 	RETURN CVM
         TRANSFER ,CPU3
