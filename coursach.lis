@@ -1,4 +1,4 @@
-    Student GPSS/H Release 3.70 (CT256)     11 May 2022   18:42:36     File: H:\GPSSH2016\labs\coursach.gps
+    Student GPSS/H Release 3.70 (CT256)     12 May 2022   15:51:37     File: H:\GPSSH2016\labs\coursach.gps
 
     Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
  
@@ -59,7 +59,7 @@
        55    55             35          ADVANCE 1
        56    56             36          RETURN AAA
 
-    Student GPSS/H Release 3.70 (CT256)     11 May 2022   18:42:36     File: H:\GPSSH2016\labs\coursach.gps
+    Student GPSS/H Release 3.70 (CT256)     12 May 2022   15:51:37     File: H:\GPSSH2016\labs\coursach.gps
 
     Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
  
@@ -72,25 +72,28 @@
        63    63             43          RETURN AAA
        64    64             44          TRANSFER .5,CCPU,WAIT3
        65    65                  
-       66    66             45  CCPU    PREEMPT CVM,PR
-       67    67             46          ADVANCE FN2
-       68    68             47          RETURN CVM
-       69    69             48          TEST L X$COUNTER,15,NET
-       70    70             49          SAVEVALUE COUNTER,0
+       66    66             45  CCPU    ADVANCE FN1
+       67    67             46          PREEMPT CVM,PR
+       68    68             47          ADVANCE FN2
+       69    69             48          RETURN CVM
+       70    70             49          TEST L X$COUNTER,15,DESTR
        71    71             50          SAVEVALUE COUNTER+,1
        72    72             51          TEST E P1,1,CCPU2
        73    73             52          SAVEVALUE D1+,1
-       74    74             53  CCPU2   TEST E P1,2,CCPU3
-       75    75             54          SAVEVALUE D2+,1
-       76    76             55  CCPU3   TEST E P1,3,DESTR
-       77    77             56          SAVEVALUE D3+,1
-       78    78             57  DESTR   TERMINATE
-       79    79             58  NET     TRANSFER ,WAIT4
-       80    80                  
-       81    81             59          GENERATE 12000
-       82    82             60          TERMINATE 1
-       83    83                         START 1
-       84    84                         END
+       74    74             53          TRANSFER ,WAIT4
+       75    75             54  CCPU2   TEST E P1,2,CCPU3
+       76    76             55          SAVEVALUE D2+,1
+       77    77             56          TRANSFER ,WAIT4
+       78    78             57  CCPU3   TEST E P1,3,DESTR
+       79    79             58          SAVEVALUE D3+,1
+       80    80             59          TRANSFER ,WAIT4
+       81    81             60  DESTR   SAVEVALUE COUNTER,0
+       82    82             61          TERMINATE
+       83    83                  
+       84    84             62          GENERATE 12000
+       85    85             63          TERMINATE 1
+       86    86                         START 1
+       87    87                         END
 
 Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
 
@@ -109,23 +112,22 @@ Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
 Symbol   Value   EQU Defns  Context      References by Statement Number
  
 CCPU        45          66  Block           57    61    64
-CCPU2       53          74  Block           72
-CCPU3       55          76  Block           74
+CCPU2       54          75  Block           72
+CCPU3       57          78  Block           75
 CPU1         6          21  Block           18    26
 CPU2        16          33  Block           30    38
 CPU3        26          45  Block           42    50
-DESTR       57          78  Block           76
+DESTR       60          81  Block           70    78
 KMM         33          53  Block           26    38    50
 KMM2        38          58  Block           54
 KMM3        42          62  Block           58
-NET         58          79  Block           69
 WAIT1        5          20  Block           57
 WAIT2       15          32  Block           61
 WAIT3       25          44  Block           64
-WAIT4       32          52  Block           79
+WAIT4       32          52  Block           74    77    80
  
 AAA          4              Facility        53    56    60    63
-CVM          5              Facility        66    68
+CVM          5              Facility        67    69
 DCPU1        1              Facility        22    25
 DCPU2        2              Facility        34    37
 DCPU3        3              Facility        46    49
@@ -134,15 +136,15 @@ QCPU1        1              Queue           21    23
 QCPU2        2              Queue           33    35
 QCPU3        3              Queue           45    47
  
-1            1           8  Function        20    32    44    52
-2            2          11  Function        67
+1            1           8  Function        20    32    44    52    66
+2            2          11  Function        68
  
-COUNTER      1              Fullword Svx     3    69    70    71
+COUNTER      1              Fullword Svx     3    70    71    81
 D1           2              Fullword Svx     4    73
-D2           3              Fullword Svx     5    75
-D3           4              Fullword Svx     6    77
+D2           3              Fullword Svx     5    76
+D3           4              Fullword Svx     6    79
  
-1            1              Parameter       16    29    41    54    58    72    74    76
+1            1              Parameter       16    29    41    54    58    72    75    78
  
 1            1              Random Nmbr      8    11
 
@@ -150,18 +152,18 @@ D3           4              Fullword Svx     6    77
 
 Storage Requirements (Bytes)
 
-Compiled Code:     1846
+Compiled Code:     1926
 Compiled Data:      224
 Miscellaneous:        0
 Entities:           718
 Common:           32720
 -----------------------
-Total:            35508
+Total:            35588
 
 GPSS/H Model Size:
 
 Control Statements      9
-Blocks                 60
+Blocks                 63
 
 
 
@@ -172,77 +174,77 @@ Relative Clock: 12000.0000   Absolute Clock: 12000.0000
 
 
 Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total
-1                    30  11                   86  21                   56  31                  107  41                   43 
-2                    30  12                   25  22                   38  WAIT4                 0  KMM3                 86 
-3                    30  13                   25  23                   38  KMM                 186  43                   86 
-4                    30  14                   25  24                   38  34                  186  44                   86 
-WAIT1                27  WAIT2                18  WAIT3                48  35                   57  CCPU                 93 
-CPU1                 86  CPU2                 56  CPU3                107  36                   57  46                   93 
-7                    86  17                   56  27                  107  37                   57  47                   93 
-8                    86  18                   56  28                  107  KMM2                129  48                   93 
-9                    86  19                   56  29                  107  39                   43  49                   93 
-10                   86  20                   56  30                  107  40                   43  50                   93 
+1                    30  11                  383  21                   86  31                  135  41                   81 
+2                    30  12                   25  22                   38  WAIT4               285  KMM3                120 
+3                    30  13                   25  23                   38  KMM                 717  43                  120 
+4                    30  14                   25  24                   38  34                  717  44                  120 
+WAIT1               260  WAIT2       1        39  WAIT3                56  35                  516  CCPU       56       362 
+CPU1       13       397  CPU2                 87  CPU3                135  36                  516  46                  306 
+7                   384  17                   87  27                  135  37                  516  47          2       306 
+8                   384  18                   87  28                  135  KMM2                201  48                  304 
+9           1       384  19          1        87  29                  135  39                   81  49                  304 
+10                  383  20                   86  30                  135  40                   81  50                  285 
 
 
 
-Block Current     Total  
-51                   93 
-52                   30 
-CCPU2                93 
-54                   25 
-CCPU3                93 
-56                   38 
-DESTR                93 
-NET                   0 
-59                    1 
-60                    1 
+Block Current     Total  Block Current     Total  
+51                  285  61                   19 
+52                  240  62                    1 
+53                  240  63                    1 
+CCPU2                45 
+55                   19 
+56                   19 
+CCPU3                26 
+58                   26 
+59                   26 
+DESTR                19 
 
 
 
           --Avg-Util-During--                                                               
 Facility  Total  Avail  Unavl     Entries    Average   Current  Percent  Seizing  Preempting
            Time   Time   Time               Time/Xact   Status   Avail     Xact      Xact   
-   DCPU1  0.214                        86      29.812    AVAIL                  
-   DCPU2  0.103                        56      22.154    AVAIL                  
-   DCPU3  0.036                       107       4.000    AVAIL                  
-     AAA  0.033                       186       2.156    AVAIL                  
-     CVM  0.305                        93      39.312    AVAIL                  
+   DCPU1  0.954                       384      29.804    AVAIL               82 
+   DCPU2  0.156                        87      21.554    AVAIL               44 
+   DCPU3  0.045                       135       4.000    AVAIL                  
+     AAA  0.086                       717       1.448    AVAIL                  
+     CVM  0.984                       306      38.594    AVAIL                         89   
 
 
 
    Queue     Maximum      Average       Total        Zero     Percent      Average      $Average     Qtable     Current
             Contents     Contents      Entries     Entries     Zeros      Time/Unit    Time/Unit     Number    Contents
-   QCPU1           2        0.010          86          81       94.2         1.401        24.105                      0
-   QCPU2           2        0.007          56          52       92.9         1.517        21.232                      0
-   QCPU3           1        0.000         107         107      100.0         0.000         0.000                      0
+   QCPU1          20        8.426         397         124       31.2       254.704       370.393                     13
+   QCPU2           2        0.033          87          74       85.1         4.509        30.175                      0
+   QCPU3           2        0.002         135         131       97.0         0.146         4.920                      0
 
 
 
 Non-zero Fullword Savevalues:  (NAME : VALUE)
 
- COUNTER:           1,       D1:          30,       D2:          25,       D3:          38
+      D1:         240,       D2:          19,       D3:          26
 
   Random    Antithetic     Initial     Current      Sample   Chi-Square
   Stream      Variates    Position    Position       Count   Uniformity
-       1           OFF      100000      100859         859      0.63
+       1           OFF      100000      103196        3196      0.79
 
 
 
 Status of Common Storage
 
-   32304 bytes available
-     416 in use
-    1336 used (max)
+   23792 bytes available
+    8928 in use
+    9968 used (max)
 
 Simulation complete.  Absolute Clock: 12000.0000
 
 
 
-Total Block Executions: 3980
+Total Block Executions: 11213
 
-Blocks / second:        31093750
+Blocks / second:        11527706
 
-Microseconds / Block:   0.03
+Microseconds / Block:   0.09
 
 
 
