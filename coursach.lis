@@ -117,13 +117,11 @@ Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
        Facilities: 1=DT1           2=DCPU1         3=DT2           4=DCPU2         5=DT3           6=DCPU3         
                    7=AAA           8=CVM
 
-           Queues: 1=QCPU1         2=QCPU2         3=QCPU3
-
         Functions: 1               2
 
  Fullword Savexes: 1=COUNTER       2=D1            3=D2            4=D3            5=DD
 
-       Parameters: 1
+       Parameters: 1               2
 
    Random Numbers: 1
 
@@ -199,16 +197,16 @@ Relative Clock: 12000.0000   Absolute Clock: 12000.0000
 
 
 Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total
-1                    30  11                  211  21                   98  31                   38  41                  234 
-2                    30  12                  211  22                   98  32                   38  42                  234 
-3                    30  13                  211  ENDT2               149  33                   38  43                  234 
-WAIT1               119  14                  211  CPU2                174  WAIT3               128  44                  234 
-5                   119  15                  211  25                  174  35                  128  45                  234 
-6           1       119  16                   25  26                  174  36                  128  WAIT4               285 
-7                   118  17                   25  27                  174  37                  128  KMM                 721 
-ENDT1               181  18                   25  28                  174  ENDT3       1       197  48                  721 
-CPU1                211  WAIT2                98  29                  174  CPU3                234  49                  252 
-10                  211  20                   98  30                  174  40                  234  50                  252 
+1                    30  11                  171  21                  121  31                   38  41                  210 
+2                    30  12                  171  22                  121  TERM3               173  42                  210 
+3                    30  13                  171  CPU2                146  SZ3                 173  KMM                 661 
+TERM1               142  14                  171  24                  146  34          1       173  44                  661 
+SZ1                 142  15                   25  25                  146  35                  172  45                  237 
+6           1       142  16                   25  26                  146  36                  172  46                  237 
+7                   141  17                   25  27                  146  CPU3                210  47                  237 
+8                   141  TERM2               121  28                  146  38                  210  48         24       133 
+CPU1                171  SZ2                 121  29                   38  39                  210  TOTERM1             104 
+10                  171  20                  121  30                   38  40                  210  KMM2                424 
 
 
 
@@ -229,22 +227,22 @@ CCPU       71       376  CCPU2               181  79                    1
           --Avg-Util-During--                                                               
 Facility  Total  Avail  Unavl     Entries    Average   Current  Percent  Seizing  Preempting
            Time   Time   Time               Time/Xact   Status   Avail     Xact      Xact   
-     DT1  0.255                       119      25.731    AVAIL                         14   
-   DCPU1  0.524                       211      29.808    AVAIL                  
-     DT2  0.212                        98      25.898    AVAIL                  
-   DCPU2  0.321                       174      22.114    AVAIL                  
-     DT3  0.274                       128      25.664    AVAIL                  
-   DCPU3  0.078                       234       4.000    AVAIL                  
-     AAA  0.122                       721       2.037    AVAIL                  
-     CVM  0.981                       305      38.577    AVAIL               27 
+     DT1  0.299                       142      25.303    AVAIL                7 
+   DCPU1  0.426                       171      29.902    AVAIL                  
+     DT2  0.260                       121      25.736    AVAIL                  
+   DCPU2  0.265                       146      21.759    AVAIL                  
+     DT3  0.365                       173      25.347    AVAIL               71 
+   DCPU3  0.070                       210       4.000    AVAIL                  
+     AAA  0.112                       661       2.027    AVAIL                  
+     CVM  0.984                       304      38.845    AVAIL               74 
 
 
 
-   Queue     Maximum      Average       Total        Zero     Percent      Average      $Average     Qtable     Current
-            Contents     Contents      Entries     Entries     Zeros      Time/Unit    Time/Unit     Number    Contents
-   QCPU1           8        0.856         211          75       35.5        48.689        75.539                      0
-   QCPU2           2        0.052         174         121       69.5         3.581        11.755                      0
-   QCPU3           1        0.001         234         228       97.4         0.060         2.353                      0
+User Chain   Entries    Average      Average     Current     Maximum
+                       Time/Xact    Contents    Contents    Contents
+      T1          24      12.417       0.025           0           1 
+      T2          21       8.000       0.014           0           1 
+      T3          20      17.242       0.029           0           2 
 
 Non-zero Fullword Savevalues:  (NAME : VALUE)
 
@@ -254,15 +252,15 @@ Non-zero Fullword Savevalues:  (NAME : VALUE)
 
   Random    Antithetic     Initial     Current      Sample   Chi-Square
   Stream      Variates    Position    Position       Count   Uniformity
-       1           OFF      100000      103973        3973      0.85
+       1           OFF      100000      101649        1649      0.67
 
 
 
 Status of Common Storage
 
-   23792 bytes available
-    8928 in use
-   10304 used (max)
+   23816 bytes available
+    8904 in use
+   10152 used (max)
 
 Simulation complete.  Absolute Clock: 12000.0000
 
@@ -279,10 +277,10 @@ Microseconds / Block:   0.10
 Elapsed Time Used (Sec)
  
 Pass1:           0.00
-Sym/Xref         0.01
+Sym/Xref         0.00
 Pass2:           0.00
 Load/Ctrl:       0.00
 Execution:       0.00
-Output:          0.01
+Output:          0.00
 ---------------------
-Total:           0.03
+Total:           0.00
