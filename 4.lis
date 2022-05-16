@@ -1,4 +1,4 @@
-    Student GPSS/H Release 3.70 (CT256)     11 May 2022   19:23:41     File: H:\GPSSH2016\labs\4.gps
+    Student GPSS/H Release 3.70 (CT256)     16 May 2022   23:40:34     File: H:\GPSSH2016\labs\4.gps
 
     Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
  
@@ -27,18 +27,20 @@
        17    17              9          GENERATE ,,,1,5 *генерация транзакта меньшего приоритета -> будет генеритьс
        18    18             10  MET3    TEST G X$BUF,0
        19    19             11          SEIZE RTR
-       20    20             12          UNLINK AAA,MET2,1
-       21    21             13          ADVANCE 11      
-       22    22             14          RELEASE RTR
-       23    23             15          TRANSFER .985,,MET1
-       24    24             16          SAVEVALUE TR+,1  *команда перехода
-       25    25             17          SAVEVALUE BUF,0
-       26    26             18          TRANSFER ,MET3
-       27    27                  
-       28    28             19          GENERATE 1500
-       29    29             20          TERMINATE 1
-       30    30                         START 1
-       31    31                         END
+       20    20             12          SAVEVALUE BUF-,1
+       21    21             13          UNLINK AAA,MET2,1
+       22    22             14          ADVANCE 11      
+       23    23             15          RELEASE RTR
+       24    24             16          TRANSFER .985,,MET3
+       25    25             17          UNLINK AAA,MET2,ALL
+       26    26             18          SAVEVALUE TR+,1  *команда перехода
+       27    27             19          SAVEVALUE BUF,0
+       28    28             20          TRANSFER ,MET3
+       29    29                  
+       30    30             21          GENERATE 1500
+       31    31             22          TERMINATE 1
+       32    32                         START 1
+       33    33                         END
 
 Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
 
@@ -51,36 +53,36 @@ Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
 Symbol   Value   EQU Defns  Context      References by Statement Number
  
 MET          5          11  Block            7
-MET1         2           7  Block            9    23
-MET2         8          15  Block           11    20
-MET3        10          18  Block           26
+MET1         2           7  Block            9
+MET2         8          15  Block           11    21    25
+MET3        10          18  Block           24    28
  
-RTR          1              Facility        19    22
+RTR          1              Facility        19    23
  
-BUF          1              Fullword Svx     3    11    12    18    25
+BUF          1              Fullword Svx     3    11    12    18    20    27
 NNN          3              Fullword Svx     5    11
-TR           2              Fullword Svx     4    24
+TR           2              Fullword Svx     4    26
  
-AAA          1              User Chain      13    20
+AAA          1              User Chain      13    21    25
 
 
 
 Storage Requirements (Bytes)
 
-Compiled Code:      800
+Compiled Code:     1066
 Compiled Data:      140
 Miscellaneous:        0
 Entities:           384
 Common:           32720
 -----------------------
-Total:            34044
+Total:            34310
 
 
 
 GPSS/H Model Size:
 
 Control Statements      6
-Blocks                 20
+Blocks                 22
 
 
 
@@ -90,58 +92,58 @@ Relative Clock: 1500.0000   Absolute Clock: 1500.0000
 
 
 
-Block Current     Total  Block Current     Total  
-1                     1  11                    1 
-MET1               1198  12                    1 
-3           2       599  13                    1 
-4                   597  14                    1 
-MET                 599  15                    1 
-6                    15  16                    0 
-7          14        15  17                    0 
-MET2                585  18                    0 
-9                     1  19                    1 
-MET3                  1  20                    1 
+Block Current     Total  Block Current     Total  Block Current     Total  
+1                     1  11                  136  21                    1 
+MET1                602  12                  136  22                    1 
+3           1       301  13                  136 
+4                   300  14          1       136 
+MET                 301  15                  135 
+6                   195  16                  135 
+7          15       195  17                    3 
+MET2                286  18                    3 
+9                     1  19                    3 
+MET3                136  20                    3 
 
 
 
           --Avg-Util-During--                                                               
 Facility  Total  Avail  Unavl     Entries    Average   Current  Percent  Seizing  Preempting
            Time   Time   Time               Time/Xact   Status   Avail     Xact      Xact   
-     RTR  0.007                         1      11.000    AVAIL                  
+     RTR  0.991                       136      10.934    AVAIL                2 
 
 
 
 User Chain   Entries    Average      Average     Current     Maximum
                        Time/Xact    Contents    Contents    Contents
-     AAA          15    1378.600      13.786          14          14 
+     AAA         195      92.000      11.960          15          15 
 
 
 
 Non-zero Fullword Savevalues:  (NAME : VALUE)
 
-     BUF:          15,      NNN:          15
+     BUF:          15,       TR:           3,      NNN:          15
 
 
 
   Random    Antithetic     Initial     Current      Sample   Chi-Square
   Stream      Variates    Position    Position       Count   Uniformity
-       1           OFF      100000      100001           1       N/A
+       1           OFF      100000      100135         135      0.28
 
 
 
 Status of Common Storage
 
-   30424 bytes available
-    2296 in use
-    2408 used (max)
+   30344 bytes available
+    2376 in use
+    2488 used (max)
 
 Simulation complete.  Absolute Clock: 1500.0000
 
 
 
-Total Block Executions: 3618
+Total Block Executions: 3146
 
-Blocks / second:        28600791
+Blocks / second:        30454986
 
 Microseconds / Block:   0.03
 
@@ -154,6 +156,6 @@ Sym/Xref         0.00
 Pass2:           0.00
 Load/Ctrl:       0.00
 Execution:       0.00
-Output:          0.00
+Output:          0.01
 ---------------------
-Total:           0.00
+Total:           0.01
