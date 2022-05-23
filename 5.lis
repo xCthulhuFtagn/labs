@@ -1,77 +1,76 @@
-    Student GPSS/H Release 3.70 (CT256)      7 May 2022   20:38:45     File: D:\GPSSH2016\labs\5.gps
+    Student GPSS/H Release 3.70 (CT256)     20 May 2022   00:18:29     File: labs\5.gps
 
     Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
  
         1     1                         SIMULATE
-        2     2                  
-        3     3                         INITIAL X$A1,0
-        4     4                  
-        5     5                 1 FUNCTION P3,E2
-        6     6                 1,10/2,36
-        7     7                 2 FUNCTION RN1,D3 
-        8     8                 .1,3/.3,4/1,2
-        9     9                 3 FUNCTION RN1,D2
-       10    10                 .3,5/1,4
-       11    11                  
-       12    12              1          GENERATE ,,,3,10
-       13    13              2          SAVEVALUE A1+,1
-       14    14              3          ASSIGN 1,1      *CPU NUMBER
-       15    15              4          ASSIGN 2,FN1   *ti
-       16    16              5          ASSIGN 3,X$A1    *REQUEST NUMBER
-       17    17              6  CPU1    QUEUE Q1
-       18    18              7          SEIZE D1
-       19    19              8          DEPART Q1
-       20    20              9          ADVANCE 5,3
-       21    21             10          RELEASE D1
-       22    22             11          TRANSFER ,RAM
-       23    23                  
-       24    24             12          GENERATE 10,1,,,30
-       25    25             13          ASSIGN 1,2      *CPU NUMBER
-       26    26             14          ASSIGN 2,FN2    *ti
-       27    27             15  CPU2    QUEUE Q2
-       28    28             16          SEIZE D2
-       29    29             17          DEPART Q2
-       30    30             18          ADVANCE 5,2
-       31    31             19          RELEASE D2
-       32    32             20          TRANSFER ,RAM
+        2     2                         INITIAL X$A1,0
+        3     3                  
+        4     4                 1 FUNCTION P3,E2
+        5     5                 1,10/2,36
+        6     6                 2 FUNCTION RN1,D3 
+        7     7                 .1,3/.3,4/1,2
+        8     8                 3 FUNCTION RN1,D2
+        9     9                 .3,5/1,4
+       10    10                  
+       11    11              1          GENERATE ,,,3,10
+       12    12              2          SAVEVALUE A1+,1
+       13    13              3          ASSIGN 1,1      *CPU NUMBER
+       14    14              4          ASSIGN 2,FN1   *ti
+       15    15              5          ASSIGN 3,X$A1    *REQUEST NUMBER
+       16    16              6  CPU1    QUEUE A1
+       17    17              7          SEIZE D1
+       18    18              8          DEPART A1
+       19    19              9          ADVANCE 5,3
+       20    20             10          RELEASE D1
+       21    21             11          TRANSFER ,RAM
+       22    22                  
+       23    23             12          GENERATE 10,1,,,30
+       24    24             13          ASSIGN 1,2      *CPU NUMBER
+       25    25             14          ASSIGN 2,FN2    *ti
+       26    26             15  CPU2    QUEUE A2
+       27    27             16          SEIZE D2
+       28    28             17          DEPART A2
+       29    29             18          ADVANCE 5,2
+       30    30             19          RELEASE D2
+       31    31             20          TRANSFER ,RAM
+       32    32                  
        33    33                  
-       34    34                  
-       35    35             21          GENERATE ,,,8,20
-       36    36             22          ASSIGN 1,3      *CPU NUMBER
-       37    37             23          ASSIGN 2,FN3    *ti
-       38    38             24  CPU3    QUEUE Q3
-       39    39             25          SEIZE D3
-       40    40             26          DEPART Q3
-       41    41             27          ADVANCE 4
-       42    42             28          RELEASE D3
-       43    43             29          TRANSFER ,RAM
-       44    44                  
-       45    45             30  RAM 	QUEUE QRAM
-       46    46             31  	SEIZE DRAM
-       47    47             32  	DEPART QRAM
-       48    48             33  	ADVANCE P2
-       49    49             34  	RELEASE DRAM
-       50    50             35  	TEST E P1,1,MET2
-       51    51             36  	TRANSFER ,CPU1
-       52    52             37  MET2 	TEST E P1,2,MET3
-       53    53             38  	TRANSFER ,CPU2
-       54    54             39  MET3 	TRANSFER ,CPU3
-       55    55                  
-       56    56             40          GENERATE 300
+       34    34             21          GENERATE ,,,8,20
+       35    35             22          ASSIGN 1,3      *CPU NUMBER
+       36    36             23          ASSIGN 2,FN3    *ti
+       37    37             24  CPU3    QUEUE A3
+       38    38             25          SEIZE D3
+       39    39             26          DEPART A3
+       40    40             27          ADVANCE 4
+       41    41             28          RELEASE D3
+       42    42             29          TRANSFER ,RAM
+       43    43                  
+       44    44             30  RAM 	QUEUE A4
+       45    45             31  	SEIZE DRAM
+       46    46             32  	DEPART A4
+       47    47             33  	ADVANCE P2
+       48    48             34  	RELEASE DRAM
+       49    49             35  	TEST E P1,1,MET2
+       50    50             36  	TRANSFER ,CPU1
+       51    51             37  MET2 	TEST E P1,2,MET3
+       52    52             38  	TRANSFER ,CPU2
+       53    53             39  MET3 	TRANSFER ,CPU3
+       54    54                  
+       55    55             40          GENERATE 135
+       56    56             41          TERMINATE 1
 
-    Student GPSS/H Release 3.70 (CT256)      7 May 2022   20:38:45     File: D:\GPSSH2016\labs\5.gps
+    Student GPSS/H Release 3.70 (CT256)     20 May 2022   00:18:29     File: labs\5.gps
 
     Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
  
-       57    57             41          TERMINATE 1
-       58    58                         START 1
-       59    59                         END
+       57    57                         START 1
+       58    58                         END
 
 Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
 
        Facilities: 1=D1            2=D2            3=D3            4=DRAM
 
-           Queues: 1               2               3               4=QRAM
+           Queues: 1=A1            2=A2            3=A3            4=A4
 
         Functions: 1               2               3
 
@@ -83,46 +82,46 @@ Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
 
 Symbol   Value   EQU Defns  Context      References by Statement Number
  
-CPU1         6          17  Block           51
-CPU2        15          27  Block           53
-CPU3        24          38  Block           54
-MET2        37          52  Block           50
-MET3        39          54  Block           52
-RAM         30          45  Block           22    32    43
+CPU1         6          16  Block           50
+CPU2        15          26  Block           52
+CPU3        24          37  Block           53
+MET2        37          51  Block           49
+MET3        39          53  Block           51
+RAM         30          44  Block           21    31    42
  
-D1           1              Facility        18    21
-D2           2              Facility        28    31
-D3           3              Facility        39    42
-DRAM         4              Facility        46    49
+D1           1              Facility        17    20
+D2           2              Facility        27    30
+D3           3              Facility        38    41
+DRAM         4              Facility        45    48
  
-1            1              Queue           17    19
-2            2              Queue           27    29
-3            3              Queue           38    40
-QRAM         4              Queue           45    47
+A1           1              Queue           16    18
+A2           2              Queue           26    28
+A3           3              Queue           37    39
+A4           4              Queue           44    46
  
-1            1           5  Function        15
-2            2           7  Function        26
-3            3           9  Function        37
+1            1           4  Function        14
+2            2           6  Function        25
+3            3           8  Function        36
  
-A1           1              Fullword Svx     3    13    16
+A1           1              Fullword Svx     2    12    15
  
-1            1              Parameter       14    25    36    50    52
-2            2              Parameter       15    26    37    48
-3            3              Parameter        5    16
+1            1              Parameter       13    24    35    49    51
+2            2              Parameter       14    25    36    47
+3            3              Parameter        4    15
  
-1            1              Random Nmbr      7     9
+1            1              Random Nmbr      6     8
 
 
 
 Storage Requirements (Bytes)
 
-Compiled Code:     1206
+Compiled Code:     1134
 Compiled Data:      240
 Miscellaneous:        0
-Entities:          1940
+Entities:           700
 Common:           10000
 -----------------------
-Total:            13386
+Total:            12074
 
 
 
@@ -133,90 +132,70 @@ Blocks                 41
 
 Simulation begins.
 
-Error number 422 - Queue # referenced is outside 1...N range allocated
-
-
-Xact 3 from 23 (CPU2+8) to 24 (CPU3)    Absclock: 0.        Relclock: 0.        TTG: 1
-
-Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
-
-3        23       CPU3     CEC                   0.          0.             20               001FD2E0
-
-                     1           2           3           4           5           6           7           8           9          10
-PH   1-10            3           4           0           0           0           0           0           0           0           0
-
-
-
-Relative Clock: 0.       Absolute Clock: 0.    
+Relative Clock: 135.0000   Absolute Clock: 135.0000
 
 
 
 Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total  Block Current     Total
-1                     0  11                    0  21                    1  31                    0  41                    0 
-2                     0  12                    0  22                    1  32                    0 
-3                     0  13                    0  23                    1  33                    0 
-4                     0  14                    0  CPU3                  0  34                    0 
-5                     0  CPU2                  0  25                    0  35                    0 
-CPU1                  0  16                    0  26                    0  36                    0 
-7                     0  17                    0  27                    0  MET2                  0 
-8                     0  18                    0  28                    0  38                    0 
-9                     0  19                    0  29                    0  MET3                  0 
-10                    0  20                    0  RAM                   0  40                    0 
+1                     3  11                    4  21                    8  31                   42  41                    1 
+2                     3  12                   13  22                    8  32                   42 
+3                     3  13                   13  23                    8  33          1        42 
+4                     3  14                   13  CPU3                 26  34                   41 
+5                     3  CPU2       11        35  25                   26  35                   41 
+CPU1                  4  16                   24  26                   26  36                    1 
+7                     4  17                   24  27          1        26  MET2                 40 
+8                     4  18          1        24  28                   25  38                   22 
+9                     4  19                   23  29                   25  MET3                 18 
+10                    4  20                   23  RAM        10        52  40                    1 
 
 
 
-CURRENT EVENTS CHAIN
-
-Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
-
-3        23       CPU3     CEC                   0.          0.             20               001FD2E0
-
-                     1           2           3           4           5           6           7           8           9          10
-PH   1-10            3           4           0           0           0           0           0           0           0           0
-
-Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
-
-5        "BIRTH"  21       CEC                   ---         0.             20               001FD150
-
-Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
-
-1        "BIRTH"  1        CEC                   ---         0.             10               001FD470
+          --Avg-Util-During--                                                               
+Facility  Total  Avail  Unavl     Entries    Average   Current  Percent  Seizing  Preempting
+           Time   Time   Time               Time/Xact   Status   Avail     Xact      Xact   
+      D1  0.086                         4       2.895    AVAIL                  
+      D2  0.907                        24       5.099    AVAIL               15 
+      D3  0.766                        26       3.979    AVAIL                5 
+    DRAM  0.981                        42       3.153    AVAIL                6 
 
 
 
-FUTURE EVENTS CHAIN
+   Queue     Maximum      Average       Total        Zero     Percent      Average      $Average     Qtable     Current
+            Contents     Contents      Entries     Entries     Zeros      Time/Unit    Time/Unit     Number    Contents
+      A1           2        0.056           4           2       50.0         1.876         3.752                      0
+      A2          12        4.605          35           2        5.7        17.763        18.840                     11
+      A3           7        1.272          26          13       50.0         6.603        13.205                      0
+      A4          12        8.550          52           1        1.9        22.197        22.633                     10
 
-Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
 
-2        "BIRTH"  12       FEC                   ---         9.5406         30               001FD3A8
 
-Xact     Curblk   Nxtblk   Chains  SDPGFT**   Mark-Time   Move-Time   Priority   PC Asmset     Addr
+Non-zero Fullword Savevalues:  (NAME : VALUE)
 
-4        "BIRTH"  40       FEC                   ---       300.0000          0               001FD218
-
+      A1:           3
+
+
+
   Random    Antithetic     Initial     Current      Sample   Chi-Square
   Stream      Variates    Position    Position       Count   Uniformity
-       1           OFF      100000      100002           2       N/A
+       1           OFF      100000      100063          63       N/A
 
 
 
 Status of Common Storage
 
-    9024 bytes available
-     976 in use
-     976 used (max)
+    6272 bytes available
+    3728 in use
+    3840 used (max)
+
+Simulation complete.  Absolute Clock: 135.0000
 
 
 
-Simulation complete.  Absolute Clock: 0.    
+Total Block Executions: 752
 
+Blocks / second:        17247709
 
-
-Total Block Executions: 3
-
-Blocks / second:        225565
-
-Microseconds / Block:   4.43
+Microseconds / Block:   0.06
 
 
 
@@ -227,6 +206,6 @@ Sym/Xref         0.00
 Pass2:           0.00
 Load/Ctrl:       0.00
 Execution:       0.00
-Output:          0.01
+Output:          0.00
 ---------------------
-Total:           0.02
+Total:           0.00

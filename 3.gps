@@ -18,7 +18,7 @@ MET3    TEST G X$AAA,0
         SAVEVALUE AAA,0
         TRANSFER ,MET3
 
-        GENERATE 1500
+        GENERATE 15000
         TERMINATE 1
         START 1
         END

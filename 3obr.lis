@@ -1,0 +1,158 @@
+    Student GPSS/H Release 3.70 (CT256)     16 May 2022   21:07:17     File: H:\GPSSH2016\labs\3obr.gps
+
+    Line# Stmt#  If Do  Block#  *Loc	Operation	A,B,C,D,E,F,G	Comments  
+ 
+        1     1                         SIMULATE
+        2     2                         INITIAL X$AAA,0 *изначально буфер пустой
+        3     3                         INITIAL X$TR,0  *подсчет переходов
+        4     4                         INITIAL X$NNN,15
+ 
+*** WARNING  642 - The next source statement exceeds 133 characters; only the first 133 characters will be processed
+ 
+        5     5              1          GENERATE ,,,1,2   *генерация одного транзакта без задержки приоритет больши
+        6     6              2  MET1    SPLIT 1,MET
+        7     7              3          ADVANCE 5       *задержка
+        8     8              4          TRANSFER ,MET1
+        9     9              5  MET     TEST L CH$AAA,X$NNN,MET2   *если не выполняется условие, то буфер переполнен
+       10    10              6          LINK AAA,FIFO
+       11    11                  
+       12    12              7  MET2    TERMINATE         
+       13    13                  
+ 
+*** WARNING  642 - The next source statement exceeds 133 characters; only the first 133 characters will be processed
+ 
+       14    14              8          GENERATE ,,,1,1 *генерация транзакта меньшего приоритета -> будет генеритьс
+       15    15              9  MET3    TEST G AAA,0
+       16    16             10          SEIZE RTR
+       17    17             11          UNLINK AAA,MET2,1
+       18    18             12          ADVANCE 11      
+       19    19             13          RELEASE RTR
+       20    20             14          TRANSFER .985,,MET1
+       21    21             15          SAVEVALUE TR+,1  *команда перехода
+       22    22             16          SAVEVALUE AAA,0
+       23    23             17          TRANSFER ,MET3
+       24    24                  
+       25    25             18          GENERATE 1500
+       26    26             19          TERMINATE 1
+       27    27                         START 1
+       28    28                         END
+
+Entity Dictionary (in ascending order by entity number; "*" => value conflict.)
+
+       Facilities: 1=RTR
+
+ Fullword Savexes: 1=AAA           2=TR            3=NNN
+
+      User Chains: 1=AAA
+
+Symbol   Value   EQU Defns  Context      References by Statement Number
+ 
+AAA          1              Absolute        15
+ 
+MET          5           9  Block            6
+MET1         2           6  Block            8    20
+MET2         7          12  Block            9    17
+MET3         9          15  Block           23
+ 
+RTR          1              Facility        16    19
+ 
+AAA          1              Fullword Svx     2    22
+NNN          3              Fullword Svx     4     9
+TR           2              Fullword Svx     3    21
+ 
+AAA          1              User Chain       9    10    17
+
+
+
+Storage Requirements (Bytes)
+
+Compiled Code:      776
+Compiled Data:      140
+Miscellaneous:        0
+Entities:           384
+Common:           10000
+-----------------------
+Total:            11300
+
+
+
+GPSS/H Model Size:
+
+Control Statements      6
+Blocks                 19
+
+
+
+Simulation begins.
+
+Relative Clock: 1500.0000   Absolute Clock: 1500.0000
+
+
+
+Block Current     Total  Block Current     Total  
+1                     1  11                    1 
+MET1               1198  12                    1 
+3           2       599  13                    1 
+4                   597  14                    1 
+MET                 599  15                    0 
+6          15        16  16                    0 
+MET2                584  17                    0 
+8                     1  18                    1 
+MET3                  1  19                    1 
+10                    1 
+
+
+
+          --Avg-Util-During--                                                               
+Facility  Total  Avail  Unavl     Entries    Average   Current  Percent  Seizing  Preempting
+           Time   Time   Time               Time/Xact   Status   Avail     Xact      Xact   
+     RTR  0.007                         1      11.000    AVAIL                  
+
+
+
+User Chain   Entries    Average      Average     Current     Maximum
+                       Time/Xact    Contents    Contents    Contents
+     AAA          16    1383.625      14.759          15          15 
+
+
+
+Non-zero Fullword Savevalues:  (NAME : VALUE)
+
+     NNN:          15
+
+
+
+  Random    Antithetic     Initial     Current      Sample   Chi-Square
+  Stream      Variates    Position    Position       Count   Uniformity
+       1           OFF      100000      100001           1       N/A
+
+
+
+Status of Common Storage
+
+    7592 bytes available
+    2408 in use
+    2520 used (max)
+
+Simulation complete.  Absolute Clock: 1500.0000
+
+
+
+Total Block Executions: 3603
+
+Blocks / second:        2884015
+
+Microseconds / Block:   0.35
+
+
+
+Elapsed Time Used (Sec)
+ 
+Pass1:           0.00
+Sym/Xref         0.00
+Pass2:           0.00
+Load/Ctrl:       0.00
+Execution:       0.00
+Output:          0.01
+---------------------
+Total:           0.01

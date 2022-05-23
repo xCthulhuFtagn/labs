@@ -1,11 +1,11 @@
         SIMULATE
-        INITIAL CH$AAA,0 *изначально буфер пустой
+        INITIAL X$AAA,0 *изначально буфер пустой
         INITIAL X$TR,0  *подсчет переходов
         INITIAL X$NNN,15
         GENERATE ,,,1,2   *генерация одного транзакта без задержки приоритет больший -> обработка сначала только него
 MET1    SPLIT 1,MET
         ADVANCE 5       *задержка
-        TRANSFER,MET1
+        TRANSFER ,MET1
 MET     TEST L CH$AAA,X$NNN,MET2   *если не выполняется условие, то буфер переполнен
         LINK AAA,FIFO
 
