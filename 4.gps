@@ -17,6 +17,7 @@ MET2    TERMINATE
         GENERATE ,,,1,5 *генерация транзакта меньшего приоритета -> будет генериться только после захвата старшего, а старший начнет заново генериться только после захвата младшего
 MET3    TEST G X$BUF,0
         SEIZE RTR
+        SAVEVALUE BUF-,1
         UNLINK AAA,MET2,1
         ADVANCE 11      
         RELEASE RTR

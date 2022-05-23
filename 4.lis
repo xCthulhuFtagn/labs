@@ -10,7 +10,7 @@
  
 *** WARNING  642 - The next source statement exceeds 133 characters; only the first 133 characters will be processed
  
-        6     6              1          GENERATE ,,,1,10   *генерация одного транзакта без задержки приоритет больш�
+        6     6              1          GENERATE ,,,1,10   *генерация одного транзакта без задержки приоритет больш�
         7     7              2  MET1    SPLIT 1,MET
         8     8              3          ADVANCE 5       *задержка
         9     9              4          TRANSFER ,MET1
@@ -55,32 +55,32 @@ MET1         2           7  Block            9
 MET2         8          15  Block           11    20
 MET3        10          18  Block           23    26
  
-RTR          1              Facility        19    22
+RTR          1              Facility        19    23
  
-BUF          1              Fullword Svx     3    11    12    18    25
+BUF          1              Fullword Svx     3    11    12    18    20    27
 NNN          3              Fullword Svx     5    11
-TR           2              Fullword Svx     4    24
+TR           2              Fullword Svx     4    26
  
-AAA          1              User Chain      13    20
+AAA          1              User Chain      13    21    25
 
 
 
 Storage Requirements (Bytes)
 
-Compiled Code:      800
+Compiled Code:     1066
 Compiled Data:      140
 Miscellaneous:        0
 Entities:           384
 Common:           32720
 -----------------------
-Total:            34044
+Total:            34310
 
 
 
 GPSS/H Model Size:
 
 Control Statements      6
-Blocks                 20
+Blocks                 22
 
 
 
@@ -154,6 +154,6 @@ Sym/Xref         0.00
 Pass2:           0.00
 Load/Ctrl:       0.00
 Execution:       0.00
-Output:          0.00
+Output:          0.01
 ---------------------
-Total:           0.00
+Total:           0.01
